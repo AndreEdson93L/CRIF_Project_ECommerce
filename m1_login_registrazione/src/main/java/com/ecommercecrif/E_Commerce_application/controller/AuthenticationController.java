@@ -1,15 +1,16 @@
 package com.ecommercecrif.E_Commerce_application.controller;
 
 import com.ecommercecrif.E_Commerce_application.model.UserEntity;
-import com.ecommercecrif.E_Commerce_application.service.UserService;
+import com.ecommercecrif.E_Commerce_application.model.dto.RegisterUserDTO;
+import com.ecommercecrif.E_Commerce_application.model.dto.UpdateUserDTO;
+import com.ecommercecrif.E_Commerce_application.model.dto.UserResponseDTO;
 import com.ecommercecrif.E_Commerce_application.service.UserServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/authentication")
@@ -18,8 +19,8 @@ public class AuthenticationController {
     @Autowired
     UserServiceImpl userService;
     @PostMapping("/register")
-    public UserEntity register(@RequestBody UserEntity user){
-        return userService.addUser(user);
+    public UserResponseDTO register(@Valid @RequestBody RegisterUserDTO registerUserDTO){
+        return userService.addUser(registerUserDTO);
     }
 
 
@@ -44,7 +45,7 @@ public class AuthenticationController {
     }
 
     @PutMapping("/update-user/{email}")
-    public UserEntity updateUser(@PathVariable String email, UserEntity updateUserDto){
+    public UserResponseDTO updateUser(@PathVariable String email,@Valid @RequestBody UpdateUserDTO updateUserDto){
 
         return userService.updateUser(email, updateUserDto);
     }

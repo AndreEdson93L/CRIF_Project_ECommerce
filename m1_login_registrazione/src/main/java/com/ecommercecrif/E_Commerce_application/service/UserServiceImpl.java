@@ -1,6 +1,10 @@
 package com.ecommercecrif.E_Commerce_application.service;
 
+import com.ecommercecrif.E_Commerce_application.mapper.UserMapper;
 import com.ecommercecrif.E_Commerce_application.model.UserEntity;
+import com.ecommercecrif.E_Commerce_application.model.dto.RegisterUserDTO;
+import com.ecommercecrif.E_Commerce_application.model.dto.UpdateUserDTO;
+import com.ecommercecrif.E_Commerce_application.model.dto.UserResponseDTO;
 import com.ecommercecrif.E_Commerce_application.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,28 +18,44 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService{
     @Autowired
-    UserRepository repository;
+    private UserRepository repository;
+    @Autowired
+    private UserMapper userMapper;
 
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Transactional
     @Override
-    public UserEntity addUser(UserEntity entity) {
+    public UserResponseDTO addUser(RegisterUserDTO registerUserDTO) {
 
-        entity.setPassword(passwordEncoder.encode(entity.getPassword()));
+        var password = registerUserDTO.getPassword();
+        registerUserDTO.setPassword(passwordEncoder.encode(password));
 
-        return repository.save(entity);
+        UserEntity userEntity = userMapper.dtoToUserEntity(registerUserDTO);
+        UserEntity savedUser = repository.save(userEntity);
+
+        return userMapper.userEntityToDto(savedUser);
     }
 
     @Transactional
     @Override
-    public UserEntity updateUser(String email, UserEntity newEntity) {
+    public UserResponseDTO updateUser(String email, UpdateUserDTO updateUserDTO) {
 
+        //verifying if user exists
         UserEntity userToUpdate = findByEmail(email);
-        newEntity.setId(userToUpdate.getId());
 
-        return repository.save(newEntity);
+        //setting password
+        var password = updateUserDTO.getPassword();
+        updateUserDTO.setPassword(passwordEncoder.encode(password));
 
+        //setting email
+        userToUpdate.setEmail(updateUserDTO.getEmail());
+
+        //saving user in the repo
+        repository.save(userToUpdate);
+
+        //returning a dto (email, role)
+        return userMapper.userEntityToDto(userToUpdate);
     }
 
     @Override

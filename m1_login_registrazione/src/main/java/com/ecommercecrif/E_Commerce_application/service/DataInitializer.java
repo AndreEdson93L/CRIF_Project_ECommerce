@@ -22,5 +22,4 @@ public class DataInitializer {
         repository.save(new UserEntity("email2@yahoo.com", passwordEncoder.encode("pass2"), Role.valueOf("USER")));
         repository.save(new UserEntity("email3@yahoo.com", passwordEncoder.encode("pass3"), Role.valueOf("USER")));
     }
-
 }
