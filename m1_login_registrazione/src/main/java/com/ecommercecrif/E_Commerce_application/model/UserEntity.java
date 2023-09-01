@@ -20,47 +20,16 @@ public class UserEntity {
 
     @Id
     @GeneratedValue
+    @Column(name = "ID")
     private Integer id;
+
+    @Column(name = "EMAIL")
     private String email;
+    @Column(name = "PASSWORD")
     private String password;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "ROLE")
     private Role role;
 
-    /*
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
-    }
-
-    @Override
-    public String getPassword() {
-        return null;
-    }
-
-    @Override
-    public String getUsername() {
-        return null;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return false;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return false;
-    }
-    */
 }
