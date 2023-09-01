@@ -21,7 +21,7 @@ public class UserEntity {
     @Id
     @GeneratedValue
     @Column(name = "ID")
-    private Integer id;
+    private Long id;
 
     @Column(name = "EMAIL")
     private String email;
@@ -32,4 +32,9 @@ public class UserEntity {
     @Column(name = "ROLE")
     private Role role;
 
+    public UserEntity(String email, String password, Role role) {
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
 }
