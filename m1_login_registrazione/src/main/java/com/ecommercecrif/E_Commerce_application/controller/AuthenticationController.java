@@ -18,11 +18,17 @@ public class AuthenticationController {
 
     @Autowired
     UserServiceImpl userService;
+
+
     @PostMapping("/register")
     public UserResponseDTO register(@Valid @RequestBody RegisterUserDTO registerUserDTO){
         return userService.addUser(registerUserDTO);
     }
+    @GetMapping("/find-all-users")
+    public Collection<UserEntity> getAllUsers(){
 
+        return userService.findAll();
+    }
 
     //endpoint autenticazione
     @PostMapping("/authentication")
@@ -40,7 +46,7 @@ public class AuthenticationController {
 
     @DeleteMapping("/delete-user/{email}")
     public boolean deleteUser(@PathVariable String email){
-        //toDo
+
         return userService.deleteByEmail(email);
     }
 
@@ -50,11 +56,7 @@ public class AuthenticationController {
         return userService.updateUser(email, updateUserDto);
     }
 
-    @GetMapping("/find-all-users")
-    public Collection<UserEntity> getAllUsers(){
 
-        return userService.findAll();
-    }
 
 
 
