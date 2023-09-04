@@ -3,10 +3,13 @@ package com.ecommercecrif.E_Commerce_application.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+import java.net.http.HttpRequest;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
@@ -20,12 +23,14 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
         httpSecurity
 
-                .authorizeRequests()
 
+
+                .authorizeRequests()
+                .requestMatchers(new AntPathRequestMatcher("/error")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/h2-console/**")).permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/swagger-ui/index.html")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/swagger-ui/**")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/api/v1/authentication/find-all-users")).permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/api/v1/authentication/register/")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/api/v1/authentication/register", "POST")).permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
