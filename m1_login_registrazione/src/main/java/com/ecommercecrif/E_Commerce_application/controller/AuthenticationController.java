@@ -1,5 +1,6 @@
 package com.ecommercecrif.E_Commerce_application.controller;
 
+import com.ecommercecrif.E_Commerce_application.exception.UserNotFoundException;
 import com.ecommercecrif.E_Commerce_application.model.UserEntity;
 import com.ecommercecrif.E_Commerce_application.model.dto.RegisterUserDTO;
 import com.ecommercecrif.E_Commerce_application.model.dto.UpdateUserDTO;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/authentication")

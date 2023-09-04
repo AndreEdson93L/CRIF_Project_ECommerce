@@ -1,5 +1,6 @@
 package com.ecommercecrif.E_Commerce_application.service;
 
+import com.ecommercecrif.E_Commerce_application.exception.UserNotFoundException;
 import com.ecommercecrif.E_Commerce_application.mapper.UserMapper;
 import com.ecommercecrif.E_Commerce_application.model.UserEntity;
 import com.ecommercecrif.E_Commerce_application.model.dto.RegisterUserDTO;
@@ -60,11 +61,9 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public UserEntity findByEmail(String email) {
-        Optional<UserEntity> foundUser = repository.findByEmail(email);
-        if(foundUser.isEmpty()){
-            throw new EntityNotFoundException();
-        }
-        return foundUser.get();
+        return repository.findByEmail(email).orElseThrow(()->
+                new UserNotFoundException(email)
+        );
     }
 
 
