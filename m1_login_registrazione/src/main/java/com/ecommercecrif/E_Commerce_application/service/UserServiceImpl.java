@@ -81,8 +81,5 @@ public class UserServiceImpl implements UserService{
         return deletedRecords == 1;
     }
 
-    @Override
-    public boolean existByEmail(String email) {
-        return repository.existsByEmail(email);
-    }
+
 }

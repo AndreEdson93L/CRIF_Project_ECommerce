@@ -1,17 +1,14 @@
 package com.ecommercecrif.E_Commerce_application.exception;
 
-import com.ecommercecrif.E_Commerce_application.exception.ApiError;
-import com.ecommercecrif.E_Commerce_application.exception.HttpMessageError;
-import com.ecommercecrif.E_Commerce_application.exception.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.context.request.WebRequest;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.context.request.WebRequest;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

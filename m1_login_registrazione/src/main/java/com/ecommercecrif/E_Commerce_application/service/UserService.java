@@ -19,5 +19,4 @@ public interface UserService {
 
     boolean deleteByEmail(String email);
 
-    boolean existByEmail(String email);
 }
