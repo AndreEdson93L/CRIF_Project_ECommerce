@@ -7,23 +7,24 @@ import com.ecommercecrif.E_Commerce_application.model.dto.RegisterUserDTO;
 import com.ecommercecrif.E_Commerce_application.model.dto.UpdateUserDTO;
 import com.ecommercecrif.E_Commerce_application.model.dto.UserResponseDTO;
 import com.ecommercecrif.E_Commerce_application.repository.UserRepository;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService{
     @Autowired
     private UserRepository repository;
+
     @Autowired
     private UserMapper userMapper;
 
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+
 
     @Transactional
     @Override

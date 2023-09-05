@@ -18,6 +18,7 @@ public class DataInitializer {
 
     @PostConstruct
     public void initData(){
+
         repository.save(new UserEntity("email1@yahoo.com", passwordEncoder.encode("pass1"), Role.valueOf("ADMIN")));
         repository.save(new UserEntity("email2@yahoo.com", passwordEncoder.encode("pass2"), Role.valueOf("USER")));
         repository.save(new UserEntity("email3@yahoo.com", passwordEncoder.encode("pass3"), Role.valueOf("USER")));

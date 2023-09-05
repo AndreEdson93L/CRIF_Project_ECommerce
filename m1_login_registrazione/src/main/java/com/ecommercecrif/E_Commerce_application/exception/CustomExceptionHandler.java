@@ -1,9 +1,11 @@
-package com.ecommercecrif.E_Commerce_application.config;
+package com.ecommercecrif.E_Commerce_application.exception;
 
+import com.ecommercecrif.E_Commerce_application.exception.ApiError;
+import com.ecommercecrif.E_Commerce_application.exception.HttpMessageError;
 import com.ecommercecrif.E_Commerce_application.exception.UserNotFoundException;
-import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
@@ -52,5 +54,12 @@ public class CustomExceptionHandler {
     public ResponseEntity<HttpMessageError> handleUserNotFoundException(UserNotFoundException ex) {
         HttpMessageError httpMessageError  = new HttpMessageError(ex.getMessage(), LocalDateTime.now());
         return new ResponseEntity<>(httpMessageError, HttpStatus.NOT_FOUND);
+    }
+
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<HttpMessageError> handleAccessDeniedException(AccessDeniedException ex) {
+        HttpMessageError httpMessageError  = new HttpMessageError(ex.getMessage(), LocalDateTime.now());
+        return new ResponseEntity<>(httpMessageError, HttpStatus.UNAUTHORIZED);
     }
 }

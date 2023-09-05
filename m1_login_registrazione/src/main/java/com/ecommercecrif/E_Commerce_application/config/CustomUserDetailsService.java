@@ -30,6 +30,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+
         Optional<UserEntity> optUser =repository.findByEmail(email);
         if (optUser.isEmpty()){
             throw new EntityNotFoundException("Username not found");
