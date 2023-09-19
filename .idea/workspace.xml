@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="40c870de-415f-49c0-835e-a0ad9223b8f7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CRIF_Project_ECommerce.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/E_Commerce_application.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/m1_login_registrazione/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/ECommerceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/config/ApiError.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/config/AuthenticationFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/config/CustomAuthenticationManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/config/CustomExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/config/CustomUserDetailsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/config/HttpMessageError.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/config/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/config/TokenService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/controller/AuthenticationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/exception/UserNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/mapper/UserMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/model/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/model/UserEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/model/dto/RegisterUserDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/model/dto/UpdateUserDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/model/dto/UserResponseDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/repository/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/service/DataInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/service/UserServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/resources/schema.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/test/java/com/ecommercecrif/E_Commerce_application/ECommerceApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/m1_login_registrazione">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/m1_login_registrazione">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="E_Commerce_application" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="E_Commerce_application" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="E_Commerce_application" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="E_Commerce_application" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build setup" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="E_Commerce_application" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="documentation" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2UkxcwiYE2qy2ycvt6uSIUkXE27" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/py3leofusi/Documents/CRIF_Project_ECommerce/m1_login_registrazione/src/main/resources",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\py3leofusi\Documents\CRIF_Project_ECommerce\m1_login_registrazione\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ecommercecrif.E_Commerce_application.config" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.m1_login_registrazione [clean]">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="temurin-17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.ecommercecrif.E_Commerce_application.ECommerceApplication" />
+      <module name="E_Commerce_application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="m1_login_registrazione [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/m1_login_registrazione" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="assemble" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="m1_login_registrazione [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/m1_login_registrazione" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="m1_login_registrazione [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/m1_login_registrazione" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.m1_login_registrazione [clean]" />
+        <item itemvalue="Gradle.m1_login_registrazione [build]" />
+        <item itemvalue="Gradle.m1_login_registrazione [assemble]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="40c870de-415f-49c0-835e-a0ad9223b8f7" name="Changes" comment="" />
+      <created>1693497462937</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1693497462937</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ClassNotFoundException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/config/CustomUserDetailsService.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
