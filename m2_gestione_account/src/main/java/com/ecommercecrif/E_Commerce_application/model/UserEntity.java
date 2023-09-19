@@ -21,16 +21,25 @@ public class UserEntity {
 
     @Column(name = "EMAIL", unique = true, nullable = false)
     private String email;
-    @Column(name = "PASSWORD")
+
+    @Column(name = "PASSWORD", nullable = false)
     private String password;
+
+    @Column(name = "NICKNAME", unique = true, nullable = false)
+    private String nickname;
+
+    @Column(name = "BALANCE")
+    private double balance;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "ROLE")
     private Role role;
 
-    public UserEntity(String email, String password, Role role) {
+    public UserEntity(String email, String nickname, String password, double balance, Role role) {
         this.email = email;
+        this.nickname = nickname;
         this.password = password;
+        this.balance = balance;
         this.role = role;
     }
 }

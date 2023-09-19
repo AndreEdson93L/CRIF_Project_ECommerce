@@ -18,9 +18,19 @@ public class DataInitializer {
 
     @PostConstruct
     public void initData(){
+        // Kenny is poor, so he has a low balance
+        repository.save(new UserEntity("kenny@southpark.com", "Kenny_McCormick", passwordEncoder.encode("kennyPass"), 10.0, Role.valueOf("USER")));
 
-        repository.save(new UserEntity("email1@yahoo.com", passwordEncoder.encode("pass1"), Role.valueOf("ADMIN")));
-        repository.save(new UserEntity("email2@yahoo.com", passwordEncoder.encode("pass2"), Role.valueOf("USER")));
-        repository.save(new UserEntity("email3@yahoo.com", passwordEncoder.encode("pass3"), Role.valueOf("USER")));
+        // Cartman
+        repository.save(new UserEntity("cartman@southpark.com", "Eric_Cartman", passwordEncoder.encode("cartmanPass"), 200.0, Role.valueOf("USER")));
+
+        // Stan
+        repository.save(new UserEntity("stan@southpark.com", "Stan_Marsh", passwordEncoder.encode("stanPass"), 100.0, Role.valueOf("USER")));
+
+        // Kyle
+        repository.save(new UserEntity("kyle@southpark.com", "Kyle_Broflovski", passwordEncoder.encode("kylePass"), 100.0, Role.valueOf("USER")));
+
+        // Chef
+        repository.save(new UserEntity("chef@southpark.com", "Chef", passwordEncoder.encode("chefPass"), 500.0, Role.valueOf("ADMIN")));
     }
 }

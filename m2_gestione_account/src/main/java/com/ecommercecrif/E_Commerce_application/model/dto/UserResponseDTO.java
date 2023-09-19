@@ -12,5 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserResponseDTO {
     private String email;
+    private String nickname;
     private Role role;
+    private double balance;
 }
