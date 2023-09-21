@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class RegisterUserDTO {
 
-    @Email(message = "Email should be valid")
+    @Email(message = "Given email is not valid, try something like 'email@email.com'")
     @NotBlank(message = "Email is required")
     private String email;
 

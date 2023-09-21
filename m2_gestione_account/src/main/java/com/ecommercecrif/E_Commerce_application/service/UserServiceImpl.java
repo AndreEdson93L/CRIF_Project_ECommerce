@@ -83,5 +83,14 @@ public class UserServiceImpl implements UserService{
         return deletedRecords == 1;
     }
 
+    public boolean existByEmail(String email) {
+        boolean isInDB = repository.existsByEmail(email);
+        return isInDB;
+    }
 
+
+    public boolean existByNickname(String nickname) {
+        boolean isInDb = repository.existsByNickname(nickname);
+        return isInDb;
+    }
 }

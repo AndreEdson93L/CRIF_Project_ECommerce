@@ -4,48 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40c870de-415f-49c0-835e-a0ad9223b8f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/CRIF_Project_ECommerce.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/E_Commerce_application.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/m1_login_registrazione/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/ECommerceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/config/ApiError.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/config/AuthenticationFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/config/CustomAuthenticationManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/config/CustomExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/config/CustomUserDetailsService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/config/HttpMessageError.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/config/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/config/TokenService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/controller/AuthenticationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/exception/UserNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/mapper/UserMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/model/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/model/UserEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/model/dto/RegisterUserDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/model/dto/UpdateUserDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/model/dto/UserResponseDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/service/DataInitializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/service/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/resources/schema.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/test/java/com/ecommercecrif/E_Commerce_application/ECommerceApplicationTests.java" beforeDir="false" />
-    </list>
+    <list default="true" id="40c870de-415f-49c0-835e-a0ad9223b8f7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,17 +77,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/py3leofusi/Documents/CRIF_Project_ECommerce/m1_login_registrazione/src/main/resources",
-    "project.structure.last.edited": "Global Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/py3leofusi/Documents/CRIF_Project_ECommerce/m1_login_registrazione/src/main/resources&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\py3leofusi\Documents\CRIF_Project_ECommerce\m1_login_registrazione\src\main\resources" />

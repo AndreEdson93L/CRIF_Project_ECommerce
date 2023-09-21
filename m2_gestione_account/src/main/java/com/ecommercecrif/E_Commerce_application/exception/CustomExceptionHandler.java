@@ -52,6 +52,16 @@ public class CustomExceptionHandler {
         HttpMessageError httpMessageError  = new HttpMessageError(ex.getMessage(), LocalDateTime.now());
         return new ResponseEntity<>(httpMessageError, HttpStatus.NOT_FOUND);
     }
+    @ExceptionHandler(EmailAlreadyInUseException.class)
+    public ResponseEntity<HttpMessageError> handleEmailAlreadyInUseException(EmailAlreadyInUseException ex) {
+        HttpMessageError httpMessageError  = new HttpMessageError(ex.getMessage(), LocalDateTime.now());
+        return new ResponseEntity<>(httpMessageError, HttpStatus.BAD_REQUEST);
+    }
+    @ExceptionHandler(NicknameAlreadyInUseException.class)
+    public ResponseEntity<HttpMessageError> handleNicknameAlreadyInUseException(NicknameAlreadyInUseException ex) {
+        HttpMessageError httpMessageError  = new HttpMessageError(ex.getMessage(), LocalDateTime.now());
+        return new ResponseEntity<>(httpMessageError, HttpStatus.BAD_REQUEST);
+    }
 
 
     @ExceptionHandler(AccessDeniedException.class)

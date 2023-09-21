@@ -13,6 +13,8 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
     Optional<UserEntity> findByEmail(String email);
     boolean existsByEmail(String email);
 
+    boolean existsByNickname(String nickname);
+
     long deleteByEmail(String email);
 
     Collection<UserEntity> findAllByOrderByEmailAsc();

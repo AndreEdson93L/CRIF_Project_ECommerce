@@ -37,7 +37,7 @@ public class AuthenticationController {
 
     @Operation(summary = "register-new-user")
     @PostMapping("/register")
-    public UserResponseDTO register(@Valid @RequestBody RegisterUserDTO registerUserDTO){
+    public UserResponseDTO register(@RequestBody RegisterUserDTO registerUserDTO){
 
         return userService.addUser(registerUserDTO);
     }

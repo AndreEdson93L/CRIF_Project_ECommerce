@@ -2,6 +2,8 @@ package com.ecommercecrif.E_Commerce_application.controller;
 
 
 
+import com.ecommercecrif.E_Commerce_application.exception.EmailAlreadyInUseException;
+import com.ecommercecrif.E_Commerce_application.exception.NicknameAlreadyInUseException;
 import com.ecommercecrif.E_Commerce_application.model.UserEntity;
 import com.ecommercecrif.E_Commerce_application.model.dto.AuthUserDTO;
 import com.ecommercecrif.E_Commerce_application.model.dto.RegisterUserDTO;
@@ -10,15 +12,11 @@ import com.ecommercecrif.E_Commerce_application.model.dto.UserResponseDTO;
 import com.ecommercecrif.E_Commerce_application.service.UserServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
+import jakarta.ws.rs.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.reactive.function.client.WebClientResponseException;
 import reactor.core.publisher.Mono;
 
 
@@ -31,21 +29,25 @@ import java.util.Collection;
 @RequestMapping("/api/v1/user-management")
 public class AuthenticationController {
 
-    private static final Logger LOG = LoggerFactory.getLogger(AuthenticationController.class);
 
 
     @Autowired
     private WebClient.Builder webClientBuilder;
 
-    /*@Autowired
-    private RestTemplate restTemplate;*/
 
     @Autowired
     UserServiceImpl userService;
 
     @Operation(summary = "account-registration")
     @PostMapping("register-account")
-    public UserResponseDTO registerAccount(@RequestBody RegisterUserDTO registerUserDTO){
+    public UserResponseDTO registerAccount(@Valid @RequestBody RegisterUserDTO registerUserDTO){
+
+        if(userService.existByEmail(registerUserDTO.getEmail())){
+            throw new EmailAlreadyInUseException(registerUserDTO.getEmail());
+        }
+        if(userService.existByNickname(registerUserDTO.getNickname())){
+            throw new NicknameAlreadyInUseException(registerUserDTO.getNickname());
+        }
 
         AuthUserDTO authUserDTO = new AuthUserDTO(registerUserDTO.getEmail(), registerUserDTO.getPassword());
 

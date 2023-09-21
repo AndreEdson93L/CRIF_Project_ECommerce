@@ -71,6 +71,7 @@ public class SecurityConfig {
                         .requestMatchers(new AntPathRequestMatcher("/v3/api-docs/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/error")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/v1/user-management/register-account", "POST")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/api/v1/user-management/get-user/{email}", "GET")).permitAll()
 
                         .anyRequest().authenticated()
                 )
