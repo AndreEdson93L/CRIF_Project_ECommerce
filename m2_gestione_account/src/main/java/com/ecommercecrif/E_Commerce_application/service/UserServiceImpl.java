@@ -2,6 +2,7 @@ package com.ecommercecrif.E_Commerce_application.service;
 
 import com.ecommercecrif.E_Commerce_application.exception.UserNotFoundException;
 import com.ecommercecrif.E_Commerce_application.mapper.UserMapper;
+import com.ecommercecrif.E_Commerce_application.model.EnumRole;
 import com.ecommercecrif.E_Commerce_application.model.UserEntity;
 import com.ecommercecrif.E_Commerce_application.model.dto.RegisterUserDTO;
 import com.ecommercecrif.E_Commerce_application.model.dto.UpdateUserDTO;
@@ -34,6 +35,10 @@ public class UserServiceImpl implements UserService{
         registerUserDTO.setPassword(passwordEncoder.encode(password));
 
         UserEntity userEntity = userMapper.dtoToUserEntity(registerUserDTO);
+
+        //This is a workaround to remove the role = null problem in insertion into DB
+        userEntity.setRole(EnumRole.valueOf("USER"));
+//        userEntity.setBalance(0.00);
         UserEntity savedUser = repository.save(userEntity);
 
         return userMapper.userEntityToDto(savedUser);
@@ -46,9 +51,6 @@ public class UserServiceImpl implements UserService{
         //verifying if user exists
         UserEntity userToUpdate = findByEmail(email);
 
-        //setting password
-        var password = updateUserDTO.getPassword();
-        updateUserDTO.setPassword(passwordEncoder.encode(password));
 
         //setting email
         userToUpdate.setEmail(updateUserDTO.getEmail());

@@ -17,9 +17,9 @@ import java.util.stream.Collectors;
 public class TokenService {
 
 
-    private final JwtEncoder encoder;
+    //private final JwtEncoder encoder;
 
-    public String generateToken(Authentication authentication) {
+    /*public String generateToken(Authentication authentication) {
         Instant now = Instant.now();
         String scope = authentication.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
@@ -33,7 +33,7 @@ public class TokenService {
                 .build();
         return this.encoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
 
-    }
+    }*/
 
 
 

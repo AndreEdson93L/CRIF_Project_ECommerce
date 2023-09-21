@@ -1,5 +1,7 @@
-package com.ecommercecrif.E_Commerce_application.config;
+package com.ecommercecrif.E_Commerce_application.security.config;
 
+import com.ecommercecrif.E_Commerce_application.config.RsaKeyProperties;
+import com.ecommercecrif.E_Commerce_application.security.CustomAuthenticationManager;
 import com.nimbusds.jose.jwk.JWK;
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;

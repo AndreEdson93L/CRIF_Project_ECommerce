@@ -1,6 +1,5 @@
 package com.ecommercecrif.E_Commerce_application.model.dto;
 
-import com.ecommercecrif.E_Commerce_application.model.Role;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,6 +23,4 @@ public class RegisterUserDTO {
     @Size(min = 8, max = 25, message = "Password should be between 8 and 25 characters")
     private String password;
 
-    @NotNull(message = "Role is required")
-    private Role role;
 }

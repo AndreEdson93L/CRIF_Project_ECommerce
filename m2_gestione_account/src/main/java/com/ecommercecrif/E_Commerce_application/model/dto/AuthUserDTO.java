@@ -8,19 +8,19 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UpdateUserDTO {
-
+public class AuthUserDTO {
 
     @Email(message = "Email should be valid")
     @NotBlank(message = "Email is required")
     private String email;
 
-    @NotBlank(message = "Nickname is required")
-    private String nickname;
-
+    @NotBlank(message = "Password is required")
+    @Size(min = 8, max = 25, message = "Password should be between 8 and 25 characters")
+    private String password;
 
 }

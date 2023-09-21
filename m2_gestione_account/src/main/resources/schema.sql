@@ -12,6 +12,6 @@ CREATE TABLE users (
     email VARCHAR(255) NOT NULL UNIQUE,
     nickname VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    role VARCHAR(255) CHECK (role IN ('USER', 'ADMIN'))
+    role VARCHAR(10) CHECK (role IN ('USER', 'ADMIN'))
 );
 

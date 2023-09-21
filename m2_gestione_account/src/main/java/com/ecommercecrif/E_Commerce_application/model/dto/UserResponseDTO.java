@@ -1,6 +1,6 @@
 package com.ecommercecrif.E_Commerce_application.model.dto;
 
-import com.ecommercecrif.E_Commerce_application.model.Role;
+import com.ecommercecrif.E_Commerce_application.model.EnumRole;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,6 +13,6 @@ import lombok.NoArgsConstructor;
 public class UserResponseDTO {
     private String email;
     private String nickname;
-    private Role role;
+    private EnumRole role;
     private double balance;
 }

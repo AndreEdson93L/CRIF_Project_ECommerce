@@ -1,7 +1,7 @@
 package com.ecommercecrif.E_Commerce_application.controller;
 
 
-import com.ecommercecrif.E_Commerce_application.config.TokenService;
+import com.ecommercecrif.E_Commerce_application.security.TokenService;
 import com.ecommercecrif.E_Commerce_application.model.UserEntity;
 import com.ecommercecrif.E_Commerce_application.model.dto.RegisterUserDTO;
 import com.ecommercecrif.E_Commerce_application.model.dto.UpdateUserDTO;
@@ -35,8 +35,10 @@ public class AuthenticationController {
     UserServiceImpl userService;
 
 
+    @Operation(summary = "register-new-user")
     @PostMapping("/register")
     public UserResponseDTO register(@Valid @RequestBody RegisterUserDTO registerUserDTO){
+
         return userService.addUser(registerUserDTO);
     }
     @Operation(summary = "get-all-users")
@@ -72,7 +74,7 @@ public class AuthenticationController {
         negl'altri endpoints
      */
     @Operation(summary = "generate-Jwt-Token")
-    @PostMapping("/token")
+    @PostMapping("/login")
     public String token(Authentication authentication) {
         LOG.debug("Token requested for user: '{}'", authentication.getName());
         String token = tokenService.generateToken(authentication);

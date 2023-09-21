@@ -1,3 +1,4 @@
+/*
 package com.ecommercecrif.E_Commerce_application.service;
 
 import com.ecommercecrif.E_Commerce_application.model.Role;
@@ -24,3 +25,4 @@ public class DataInitializer {
         repository.save(new UserEntity("email3@yahoo.com", passwordEncoder.encode("pass3"), Role.valueOf("USER")));
     }
 }
+*/

@@ -2,7 +2,9 @@ package com.ecommercecrif.E_Commerce_application.model;
 
 
 
-public enum Role {
+public enum EnumRole {
     USER,
-    ADMIN
+    ADMIN;
+
+
 }

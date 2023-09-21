@@ -1,7 +1,7 @@
-package com.ecommercecrif.E_Commerce_application.config;
+package com.ecommercecrif.E_Commerce_application.security;
 
 
-import com.ecommercecrif.E_Commerce_application.model.Role;
+import com.ecommercecrif.E_Commerce_application.model.EnumRole;
 import com.ecommercecrif.E_Commerce_application.model.UserEntity;
 import com.ecommercecrif.E_Commerce_application.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -40,7 +40,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     }
 
 
-    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Role role){
+    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(EnumRole role){
         return List.of(new SimpleGrantedAuthority(role.name()));
     }
 }
