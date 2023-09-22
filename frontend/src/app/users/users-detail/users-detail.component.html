@@ -1,0 +1,11 @@
+<div *ngIf="user">
+    <h2>{{user.nickname | uppercase}} Details</h2>
+    <div>id: {{user.id}}</div>
+    <div>
+        <p>Email:{{ user.email }}</p>
+        <p>Password:{{ user.password }}</p>
+        <p>Role:{{ user.role }}</p>
+    </div>
+   
+    <button type="button" (click)="gotoUsers()">go back</button>
+</div>  
