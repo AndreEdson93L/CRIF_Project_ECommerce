@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService{
 
         //This is a workaround to remove the role = null problem in insertion into DB
         userEntity.setRole(EnumRole.valueOf("USER"));
-//        userEntity.setBalance(0.00);
+
         UserEntity savedUser = repository.save(userEntity);
 
         return userMapper.userEntityToDto(savedUser);

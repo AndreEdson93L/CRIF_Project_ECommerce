@@ -16,7 +16,7 @@ import java.util.Collection;
 import java.util.LinkedList;
 
 @Component
-public class CustomAuthenticationManager implements AuthenticationProvider {
+public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     @Autowired
     CustomUserDetailsService service;

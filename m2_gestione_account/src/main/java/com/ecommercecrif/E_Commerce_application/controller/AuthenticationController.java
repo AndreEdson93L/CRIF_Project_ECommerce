@@ -3,18 +3,16 @@ package com.ecommercecrif.E_Commerce_application.controller;
 import com.ecommercecrif.E_Commerce_application.exception.EmailAlreadyInUseException;
 import com.ecommercecrif.E_Commerce_application.exception.NicknameAlreadyInUseException;
 import com.ecommercecrif.E_Commerce_application.model.UserEntity;
-import com.ecommercecrif.E_Commerce_application.model.dto.AuthUserDTO;
-import com.ecommercecrif.E_Commerce_application.model.dto.RegisterUserDTO;
-import com.ecommercecrif.E_Commerce_application.model.dto.UpdateUserDTO;
-import com.ecommercecrif.E_Commerce_application.model.dto.UserResponseDTO;
+import com.ecommercecrif.E_Commerce_application.model.dto.*;
 import com.ecommercecrif.E_Commerce_application.service.UserServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
+import org.springframework.web.client.RestTemplate;
+//import org.springframework.web.reactive.function.client.WebClient;
+//import reactor.core.publisher.Mono;
 import java.util.Collection;
 
 @RestController
@@ -22,7 +20,9 @@ import java.util.Collection;
 public class AuthenticationController {
 
     @Autowired
-    private WebClient.Builder webClientBuilder;
+    private RestTemplate restTemplate;
+   /* @Autowired
+    private WebClient.Builder webClientBuilder;*/
 
     @Autowired
     UserServiceImpl userService;
@@ -40,15 +40,18 @@ public class AuthenticationController {
 
         AuthUserDTO authUserDTO = new AuthUserDTO(registerUserDTO.getEmail(), registerUserDTO.getPassword());
 
-        //restTemplate.postForEntity("http://localhost:8090/api/v1/authentication/register", authUserDTO, AuthUserDTO.class );
+        restTemplate.postForEntity("http://AUTHENTICATION-MANAGEMENT/api/v1/authentication/register", authUserDTO, AuthUserDTO.class );
 
+/*
+    Momentarily not Working, try again when we have more time
         webClientBuilder.build()
                 .post()
-                .uri("http://AUTHENTICATION-MANAGEMENT/api/v1/authentication/register")
+                .uri("http://localhost/8090/api/v1/authentication/register")
                 .body(Mono.just(authUserDTO), AuthUserDTO.class)
                 .retrieve()
                 .bodyToMono(UserResponseDTO.class)
                 .block();
+*/
 
 
         return userService.addUser(registerUserDTO);

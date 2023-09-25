@@ -7,21 +7,22 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.reactive.function.client.WebClient;
+//import org.springframework.web.reactive.function.client.WebClient;
 
 @SpringBootApplication
 @EnableConfigurationProperties(RsaKeyProperties.class)
 public class ECommerceApplication {
 
-	/*@Bean
+	@Bean
+	@LoadBalanced
 	public RestTemplate getRestTemplate(){
 		return new RestTemplate();
-	}*/
-	@Bean
+	}
+	/*@Bean
 	@LoadBalanced
 	public WebClient.Builder getWebClientBUilder(){
 		return WebClient.builder();
-	}
+	}*/
 	public static void main(String[] args) {
 		SpringApplication.run(ECommerceApplication.class, args);
 	}

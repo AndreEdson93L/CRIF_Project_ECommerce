@@ -37,7 +37,7 @@ public class SecurityConfig {
     }
 
     @Autowired
-    private CustomAuthenticationManager authenticationProvider;
+    private CustomAuthenticationProvider authenticationProvider;
 
     @Bean
     @Order(1)
@@ -75,6 +75,9 @@ public class SecurityConfig {
                         .requestMatchers(new AntPathRequestMatcher("/error")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/v1/user-management/register-account", "POST")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/v1/user-management/get-user/{email}", "GET")).permitAll()
+
+                        .requestMatchers(new AntPathRequestMatcher("/api/v1/authentication/**")).permitAll()
+
 
                         .anyRequest().authenticated()
                 )

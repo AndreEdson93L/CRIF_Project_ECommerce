@@ -68,7 +68,7 @@ public class SecurityConfig {
     SecurityFilterChain apiSecurityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .cors(Customizer.withDefaults())
-                .securityMatcher("/api/v1/authentication/token")
+                .securityMatcher("/api/v1/authentication/login")
                 .authorizeHttpRequests(auth -> {
                     auth.anyRequest().authenticated();
                 })
@@ -84,7 +84,7 @@ public class SecurityConfig {
     @Order(2)
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http// by default use a bean by the name of corsConfigurationSource
-                .cors(Customizer.withDefaults())
+                //.cors(Customizer.withDefaults())
                 .csrf(csrf -> csrf.disable())
                 //nota bene disabilitare crsf e non impostare su Stateless le session è una bad practice per la sicurezza
                 //Necessario per visualizzare l'interfaccia web di h2 DB
@@ -108,7 +108,7 @@ public class SecurityConfig {
                 .build();
     }
 
-    @Bean
+   /* @Bean
     CorsConfigurationSource corsConfigurationSource(){
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
@@ -117,5 +117,5 @@ public class SecurityConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
-    }
+    }*/
 }
