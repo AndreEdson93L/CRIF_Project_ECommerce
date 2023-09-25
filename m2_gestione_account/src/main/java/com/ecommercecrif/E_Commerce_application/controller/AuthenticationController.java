@@ -1,7 +1,5 @@
 package com.ecommercecrif.E_Commerce_application.controller;
 
-
-
 import com.ecommercecrif.E_Commerce_application.exception.EmailAlreadyInUseException;
 import com.ecommercecrif.E_Commerce_application.exception.NicknameAlreadyInUseException;
 import com.ecommercecrif.E_Commerce_application.model.UserEntity;
@@ -12,28 +10,19 @@ import com.ecommercecrif.E_Commerce_application.model.dto.UserResponseDTO;
 import com.ecommercecrif.E_Commerce_application.service.UserServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
-import jakarta.ws.rs.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
-
-
 import java.util.Collection;
-
-
-
 
 @RestController
 @RequestMapping("/api/v1/user-management")
 public class AuthenticationController {
 
-
-
     @Autowired
     private WebClient.Builder webClientBuilder;
-
 
     @Autowired
     UserServiceImpl userService;
@@ -72,21 +61,16 @@ public class AuthenticationController {
         return userService.findAll();
     }
 
-
     @Operation(summary = "get-User-By-Email")
     @GetMapping("get-user/{email}")
     public UserEntity getUser(@PathVariable String email){
         return userService.findByEmail(email);
     }
 
-
-
     @DeleteMapping("/delete-user/{email}")
     public boolean deleteUser(@PathVariable String email){
         return userService.deleteByEmail(email);
     }
-
-
 
     @PutMapping("/update-user/{email}")
     public UserResponseDTO updateUser(@PathVariable String email,@Valid @RequestBody UpdateUserDTO updateUserDto){

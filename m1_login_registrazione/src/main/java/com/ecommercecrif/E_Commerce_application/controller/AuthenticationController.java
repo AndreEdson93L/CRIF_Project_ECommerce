@@ -1,6 +1,5 @@
 package com.ecommercecrif.E_Commerce_application.controller;
 
-
 import com.ecommercecrif.E_Commerce_application.security.TokenService;
 import com.ecommercecrif.E_Commerce_application.model.UserEntity;
 import com.ecommercecrif.E_Commerce_application.model.dto.RegisterUserDTO;
@@ -15,12 +14,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-
 import java.util.Collection;
-
-
-
 
 @RestController
 @RequestMapping("/api/v1/authentication")
@@ -33,7 +27,6 @@ public class AuthenticationController {
 
     @Autowired
     UserServiceImpl userService;
-
 
     @Operation(summary = "register-new-user")
     @PostMapping("/register")
@@ -82,7 +75,8 @@ public class AuthenticationController {
         return token;
     }
 
-
-
-
+    @GetMapping("/test")
+    public String test() {
+        return "API works!";
+    }
 }
