@@ -12,6 +12,7 @@ public interface UserService {
     UserResponseDTO addUser(RegisterUserDTO entity);
 
     UserResponseDTO updateUser(String email, UpdateUserDTO updateUserDTO);
+    UserResponseDTO updateUserToAdmin(String email);
 
     UserEntity findByEmail(String email);
 

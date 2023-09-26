@@ -1,5 +1,7 @@
 package com.ecommercecrif.E_Commerce_application.controller;
 
+import com.ecommercecrif.E_Commerce_application.mapper.UserMapper;
+import com.ecommercecrif.E_Commerce_application.model.EnumRole;
 import com.ecommercecrif.E_Commerce_application.security.TokenService;
 import com.ecommercecrif.E_Commerce_application.model.UserEntity;
 import com.ecommercecrif.E_Commerce_application.model.dto.RegisterUserDTO;
@@ -28,6 +30,9 @@ public class AuthenticationController {
     @Autowired
     UserServiceImpl userService;
 
+    @Autowired
+    UserMapper userMapper;
+
     @Operation(summary = "register-new-user")
     @PostMapping("/register")
     public UserResponseDTO register(@RequestBody RegisterUserDTO registerUserDTO){
@@ -40,6 +45,14 @@ public class AuthenticationController {
     public Collection<UserEntity> getAllUsers(){
 
         return userService.findAll();
+    }
+
+    @Operation(summary = "promote-to-admin")
+    @PutMapping("admin/promote-user/{email}")
+    @PreAuthorize("hasAuthority('SCOPE_[ADMIN]')")
+    public UserResponseDTO promoteToAdmin(@PathVariable String email){
+
+        return userService.updateUserToAdmin(email);
     }
 
     @Operation(summary = "get-User-By-Email")

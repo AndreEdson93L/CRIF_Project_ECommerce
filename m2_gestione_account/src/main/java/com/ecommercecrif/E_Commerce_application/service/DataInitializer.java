@@ -1,5 +1,4 @@
-/*
-package com.ecommercecrif.E_Commerce_application.service;
+/*package com.ecommercecrif.E_Commerce_application.service;
 
 import com.ecommercecrif.E_Commerce_application.model.EnumRole;
 import com.ecommercecrif.E_Commerce_application.model.UserEntity;
@@ -35,5 +34,4 @@ public class DataInitializer {
         repository.save(new UserEntity("chef@southpark.com", "Chef", passwordEncoder.encode("chefPass"), 500.0, EnumRole.valueOf("ADMIN")));
     }
 }
-
 */

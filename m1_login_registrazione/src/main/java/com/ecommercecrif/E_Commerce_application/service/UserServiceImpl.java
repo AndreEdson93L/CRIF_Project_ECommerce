@@ -25,8 +25,6 @@ public class UserServiceImpl implements UserService{
 
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-
-
     @Transactional
     @Override
     public UserResponseDTO addUser(RegisterUserDTO registerUserDTO) {
@@ -38,7 +36,6 @@ public class UserServiceImpl implements UserService{
 
         //This is a workaround to remove the role = null problem in insertion into DB
         userEntity.setRole(EnumRole.valueOf("USER"));
-
         UserEntity savedUser = repository.save(userEntity);
 
         return userMapper.userEntityToDto(savedUser);
@@ -48,17 +45,19 @@ public class UserServiceImpl implements UserService{
     @Override
     public UserResponseDTO updateUser(String email, UpdateUserDTO updateUserDTO) {
 
-        //verifying if user exists
         UserEntity userToUpdate = findByEmail(email);
-
-        //setting password
-        var password = updateUserDTO.getPassword();
-        updateUserDTO.setPassword(passwordEncoder.encode(password));
-
-        //setting email
         userToUpdate.setEmail(updateUserDTO.getEmail());
+        repository.save(userToUpdate);
 
-        //saving user in the repo
+        //returning a dto (email, role)
+        return userMapper.userEntityToDto(userToUpdate);
+    }
+
+    @Override
+    public UserResponseDTO updateUserToAdmin(String email) {
+
+        UserEntity userToUpdate = findByEmail(email);
+        userToUpdate.setRole(EnumRole.ADMIN);
         repository.save(userToUpdate);
 
         //returning a dto (email, role)
@@ -82,7 +81,6 @@ public class UserServiceImpl implements UserService{
     @Override
     public boolean deleteByEmail(String email) {
         long deletedRecords = repository.deleteByEmail(email);
-
         return deletedRecords == 1;
     }
 
