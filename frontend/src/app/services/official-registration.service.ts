@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/enviroments/enviroments';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OfficialRegistrationService {
 
-  private registerUrl = 'http://localhost:8090/api/v1/authentication/register';
+  registerUrl = environment.registerUrl;
   
   constructor(private http: HttpClient) { }
 
