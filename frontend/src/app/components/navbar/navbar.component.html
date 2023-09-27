@@ -1,6 +1,7 @@
-<div id="navbar">
-    <a routerLink="/">HOME</a>
-    <a routerLink="/users">USERS-LIST</a> 
-    <a routerLink="/register">REGISTER</a> 
-    <a routerLink="/login">LOGIN</a>
-</div>
+<div id="navbar" class="navbar">
+    <a routerLink="/" [ngClass]="{'active-link': isActive('/')}">HOME</a>
+    <a routerLink="/users" [ngClass]="{'active-link': isActive('/users')}">USERS-LIST</a>
+    <a routerLink="/register" [ngClass]="{'active-link': isActive('/register')}">REGISTER</a>
+    <a routerLink="/login" [ngClass]="{'active-link': isActive('/login')}">LOGIN</a>
+  </div>
+  

@@ -83,5 +83,4 @@ public class AuthenticationController {
         LOG.debug("Token granted: {}", token);
         return token;
     }
-
 }
