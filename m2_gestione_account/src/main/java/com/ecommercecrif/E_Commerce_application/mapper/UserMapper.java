@@ -13,6 +13,7 @@ public interface UserMapper {
 
     //To return the DTO as response body JSON
     UserResponseDTO userEntityToDto(UserEntity userEntity);
+
     UpdateUserDTO userEntityToUpdateUserDto(UserEntity userEntity);
 
 

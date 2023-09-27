@@ -1,6 +1,6 @@
 package com.ecommercecrif.E_Commerce_application;
 
-import com.ecommercecrif.E_Commerce_application.config.RsaKeyProperties;
+import com.ecommercecrif.E_Commerce_application.security.config.RsaKeyProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

@@ -5,7 +5,7 @@ import com.ecommercecrif.E_Commerce_application.mapper.UserMapper;
 import com.ecommercecrif.E_Commerce_application.model.EnumRole;
 import com.ecommercecrif.E_Commerce_application.model.UserEntity;
 import com.ecommercecrif.E_Commerce_application.model.dto.RegisterUserDTO;
-import com.ecommercecrif.E_Commerce_application.model.dto.UpdateUserDTO;
+import com.ecommercecrif.E_Commerce_application.model.dto.UpdateEmailDTO;
 import com.ecommercecrif.E_Commerce_application.model.dto.UserResponseDTO;
 import com.ecommercecrif.E_Commerce_application.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,17 +25,18 @@ public class UserServiceImpl implements UserService{
 
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
+
+
     @Transactional
     @Override
     public UserResponseDTO addUser(RegisterUserDTO registerUserDTO) {
 
-        var password = registerUserDTO.getPassword();
-        registerUserDTO.setPassword(passwordEncoder.encode(password));
 
         UserEntity userEntity = userMapper.dtoToUserEntity(registerUserDTO);
 
         //This is a workaround to remove the role = null problem in insertion into DB
         userEntity.setRole(EnumRole.valueOf("USER"));
+
         UserEntity savedUser = repository.save(userEntity);
 
         return userMapper.userEntityToDto(savedUser);
@@ -43,10 +44,15 @@ public class UserServiceImpl implements UserService{
 
     @Transactional
     @Override
-    public UserResponseDTO updateUser(String email, UpdateUserDTO updateUserDTO) {
+    public UserResponseDTO updateUser(String email, UpdateEmailDTO updateUserDTO) {
 
+        //verifying if user exists
         UserEntity userToUpdate = findByEmail(email);
+
+        //setting email
         userToUpdate.setEmail(updateUserDTO.getEmail());
+
+        //saving user in the repo
         repository.save(userToUpdate);
 
         //returning a dto (email, role)
@@ -54,12 +60,15 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    @Transactional
     public UserResponseDTO updateUserToAdmin(String email) {
 
         UserEntity userToUpdate = findByEmail(email);
+        if(userToUpdate.getRole().equals(EnumRole.ADMIN)){
+            return userMapper.userEntityToDto(userToUpdate);
+        }
         userToUpdate.setRole(EnumRole.ADMIN);
         repository.save(userToUpdate);
-
         //returning a dto (email, role)
         return userMapper.userEntityToDto(userToUpdate);
     }

@@ -1,11 +1,9 @@
 package com.ecommercecrif.E_Commerce_application.controller;
 
-import com.ecommercecrif.E_Commerce_application.mapper.UserMapper;
-import com.ecommercecrif.E_Commerce_application.model.EnumRole;
 import com.ecommercecrif.E_Commerce_application.security.TokenService;
 import com.ecommercecrif.E_Commerce_application.model.UserEntity;
 import com.ecommercecrif.E_Commerce_application.model.dto.RegisterUserDTO;
-import com.ecommercecrif.E_Commerce_application.model.dto.UpdateUserDTO;
+import com.ecommercecrif.E_Commerce_application.model.dto.UpdateEmailDTO;
 import com.ecommercecrif.E_Commerce_application.model.dto.UserResponseDTO;
 import com.ecommercecrif.E_Commerce_application.service.UserServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
@@ -30,9 +28,6 @@ public class AuthenticationController {
     @Autowired
     UserServiceImpl userService;
 
-    @Autowired
-    UserMapper userMapper;
-
     @Operation(summary = "register-new-user")
     @PostMapping("/register")
     public UserResponseDTO register(@RequestBody RegisterUserDTO registerUserDTO){
@@ -47,6 +42,25 @@ public class AuthenticationController {
         return userService.findAll();
     }
 
+  /*  @Operation(summary = "get-User-By-Email")
+    @GetMapping("get-user/{email}")
+    public UserEntity getUser(@PathVariable String email){
+        //toDo
+        return userService.findByEmail(email);
+    }
+*/
+    @DeleteMapping("/delete-user/{email}")
+    public boolean deleteUser(@PathVariable String email){
+
+        return userService.deleteByEmail(email);
+    }
+
+    @PutMapping("/update-user/{email}")
+    public UserResponseDTO updateUser(@PathVariable String email,@Valid @RequestBody UpdateEmailDTO updateUserDto){
+
+        return userService.updateUser(email, updateUserDto);
+    }
+
     @Operation(summary = "promote-to-admin")
     @PutMapping("admin/promote-user/{email}")
     @PreAuthorize("hasAuthority('SCOPE_[ADMIN]')")
@@ -55,24 +69,6 @@ public class AuthenticationController {
         return userService.updateUserToAdmin(email);
     }
 
-    @Operation(summary = "get-User-By-Email")
-    @GetMapping("get-user/{email}")
-    public UserEntity getUser(@PathVariable String email){
-        //toDo
-        return userService.findByEmail(email);
-    }
-
-    @DeleteMapping("/delete-user/{email}")
-    public boolean deleteUser(@PathVariable String email){
-
-        return userService.deleteByEmail(email);
-    }
-
-    @PutMapping("/update-user/{email}")
-    public UserResponseDTO updateUser(@PathVariable String email,@Valid @RequestBody UpdateUserDTO updateUserDto){
-
-        return userService.updateUser(email, updateUserDto);
-    }
 
     /*
         endpoint che permette una Basic Auth e restituisce
@@ -88,8 +84,4 @@ public class AuthenticationController {
         return token;
     }
 
-    @GetMapping("/test")
-    public String test() {
-        return "API works!";
-    }
 }

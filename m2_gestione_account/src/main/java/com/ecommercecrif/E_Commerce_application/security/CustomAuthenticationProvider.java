@@ -1,4 +1,4 @@
-package com.ecommercecrif.E_Commerce_application.config;
+package com.ecommercecrif.E_Commerce_application.security;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

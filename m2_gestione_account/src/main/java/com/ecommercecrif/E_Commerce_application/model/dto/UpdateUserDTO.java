@@ -16,12 +16,10 @@ public class UpdateUserDTO {
 
 
     @Email(message = "Email should be valid")
-    @NotBlank(message = "Email is required")
     @Size(max = 255, message = "Email shouldn't be more then 255 characters")
     private String email;
 
-    @NotBlank(message = "Nickname is required")
-    @Size(min = 4, max = 255, message = "Nickname should be between 4 and 255 characters")
+    //@Size(min = 4, max = 255, message = "Nickname should be between 4 and 255 characters")
     private String nickname;
 
 

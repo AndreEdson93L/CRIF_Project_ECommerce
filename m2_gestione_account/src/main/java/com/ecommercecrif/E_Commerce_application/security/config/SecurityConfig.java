@@ -1,5 +1,6 @@
-package com.ecommercecrif.E_Commerce_application.config;
+package com.ecommercecrif.E_Commerce_application.security.config;
 
+import com.ecommercecrif.E_Commerce_application.security.CustomAuthenticationProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

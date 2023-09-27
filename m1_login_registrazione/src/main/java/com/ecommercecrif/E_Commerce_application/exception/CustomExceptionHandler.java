@@ -3,6 +3,7 @@ package com.ecommercecrif.E_Commerce_application.exception;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -56,6 +57,12 @@ public class CustomExceptionHandler {
 
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity<HttpMessageError> handleAccessDeniedException(AccessDeniedException ex) {
+        HttpMessageError httpMessageError  = new HttpMessageError(ex.getMessage(), LocalDateTime.now());
+        return new ResponseEntity<>(httpMessageError, HttpStatus.UNAUTHORIZED);
+    }
+
+    @ExceptionHandler(BadCredentialsException.class)
+    public ResponseEntity<HttpMessageError> handleBadCredentialsException(BadCredentialsException ex) {
         HttpMessageError httpMessageError  = new HttpMessageError(ex.getMessage(), LocalDateTime.now());
         return new ResponseEntity<>(httpMessageError, HttpStatus.UNAUTHORIZED);
     }

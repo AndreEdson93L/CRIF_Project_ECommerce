@@ -2,7 +2,8 @@ package com.ecommercecrif.E_Commerce_application.controller;
 
 import com.ecommercecrif.E_Commerce_application.mapper.UserMapper;
 import com.ecommercecrif.E_Commerce_application.model.UserEntity;
-import com.ecommercecrif.E_Commerce_application.model.dto.*;
+import com.ecommercecrif.E_Commerce_application.model.dto.UpdateUserDTO;
+import com.ecommercecrif.E_Commerce_application.model.dto.UserResponseDTO;
 import com.ecommercecrif.E_Commerce_application.service.AdminService;
 import com.ecommercecrif.E_Commerce_application.service.UserServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
@@ -10,21 +11,21 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
+
 import java.util.Collection;
 
 @RestController
 @RequestMapping("/api/v1/admin-management")
 public class AdminController {
 
-    private RestTemplate restTemplate;
+
     private UserServiceImpl userService;
     private AdminService adminService;
     private UserMapper userMapper;
 
     @Autowired
-    public AdminController(RestTemplate restTemplate, UserServiceImpl userService, AdminService adminService, UserMapper userMapper){
-        this.restTemplate = restTemplate;
+    public AdminController( UserServiceImpl userService, AdminService adminService, UserMapper userMapper){
+
         this.adminService = adminService;
         this.userService = userService;
         this.userMapper = userMapper;

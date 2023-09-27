@@ -98,7 +98,7 @@ public class AdminServiceImpl implements AdminService {
     public HttpEntity<UpdateUserDTO> createHttpEntityWithJWTHeaderAndDTO (String token, UpdateUserDTO updateUserDTO){
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", token);
-        HttpEntity<UpdateUserDTO> entity = new HttpEntity<UpdateUserDTO>(updateUserDTO, headers);
+        HttpEntity<UpdateUserDTO> entity = new HttpEntity<>(updateUserDTO, headers);
         return entity;
     }
 }
