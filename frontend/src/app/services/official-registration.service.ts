@@ -8,10 +8,10 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class OfficialRegistrationService {
-  private registerUrl = environment.registerUrl;
+  private url = environment.registerUrl;
   constructor(private http: HttpClient) { }
 
   registerAccount(registerUserDTO: User): Observable<any> {
-    return this.http.post(this.registerUrl, registerUserDTO, { headers: { 'Content-Type': 'application/json' } });
+    return this.http.post(this.url, registerUserDTO, { headers: { 'Content-Type': 'application/json' } });
   }
 }

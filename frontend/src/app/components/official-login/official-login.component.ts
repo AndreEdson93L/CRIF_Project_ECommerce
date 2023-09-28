@@ -17,7 +17,12 @@ export class OfficialLoginComponent {
     this.loginService.login(this.username, this.password).subscribe({
       next: (data) => {
         console.log('JWT Token: ', data);
-        localStorage.setItem('jwtToken', data);
+        localStorage.setItem('jwtToken', JSON.stringify(data));
+
+        console.log("DAB DAB DUBA DAB DAB DUBA");
+        
+        const helloJwt = localStorage.getItem('jwtToken');
+        console.log(helloJwt);
       },
       error: (err) => {
         console.log('You should not pass!', err);
