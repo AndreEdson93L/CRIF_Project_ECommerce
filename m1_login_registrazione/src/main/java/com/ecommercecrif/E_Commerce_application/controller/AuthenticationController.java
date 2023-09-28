@@ -1,5 +1,6 @@
 package com.ecommercecrif.E_Commerce_application.controller;
 
+import com.ecommercecrif.E_Commerce_application.model.JwtResponse;
 import com.ecommercecrif.E_Commerce_application.security.TokenService;
 import com.ecommercecrif.E_Commerce_application.model.UserEntity;
 import com.ecommercecrif.E_Commerce_application.model.dto.RegisterUserDTO;
@@ -9,6 +10,7 @@ import com.ecommercecrif.E_Commerce_application.service.UserServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
@@ -77,10 +79,12 @@ public class AuthenticationController {
      */
     @Operation(summary = "generate-Jwt-Token")
     @PostMapping("/login")
-    public String token(Authentication authentication) {
+    public ResponseEntity<JwtResponse> token(Authentication authentication) {
         LOG.debug("Token requested for user: '{}'", authentication.getName());
         String token = tokenService.generateToken(authentication);
         LOG.debug("Token granted: {}", token);
-        return token;
+
+        JwtResponse jwtResponse = new JwtResponse(token);
+        return ResponseEntity.ok(jwtResponse);
     }
 }
