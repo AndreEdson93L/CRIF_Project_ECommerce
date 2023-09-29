@@ -19,4 +19,10 @@ export class LoginService {
 
     return this.http.post<string>(this.url, {}, { headers: headers });
   }
+
+  /* isLoggedIn(){
+    if(localStorage.getItem('jwtToken') !== null){
+      return true
+    }
+  } */
 }

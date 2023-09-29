@@ -16,7 +16,7 @@ public interface UserService {
 
     UserEntity findByEmail(String email);
 
-    UserEntity getUserByEmailInJwt(String token);
+    UserResponseDTO getUserByEmailInJwt(String token);
     Boolean deleteByEmailInJwt(String token);
 
     UserResponseDTO updateUserByEmailInJwt(String token, UpdateUserDTO updateUserDTO);

@@ -1,7 +1,14 @@
-<div id="navbar" class="navbar">
+<div id="navbar" class="navbar" *ngIf="true; else elseBlock">
     <a routerLink="/" [ngClass]="{'active-link': isActive('/')}">HOME</a>
-    <a routerLink="/users" [ngClass]="{'active-link': isActive('/users')}">USERS-LIST</a>
+    <a routerLink="/user-details" [ngClass]="{'active-link': isActive('/user-details')}">USER DETAILS</a>
+    <a routerLink="/admin/all-users-details" [ngClass]="{'active-link': isActive('/users')}">USERS-LIST</a>
     <a routerLink="/register" [ngClass]="{'active-link': isActive('/register')}">REGISTER</a>
     <a routerLink="/login" [ngClass]="{'active-link': isActive('/login')}">LOGIN</a>
   </div>
-  
+  <ng-template #elseBlock>
+    <div id="navbar" class="navbar">
+    <a routerLink="/" [ngClass]="{'active-link': isActive('/')}">HOME</a>
+    <a routerLink="/user-details" [ngClass]="{'active-link': isActive('/user-details')}">USER DETAILS</a>
+    <a routerLink="/register" [ngClass]="{'active-link': isActive('/register')}">REGISTER</a>
+    <a routerLink="/login" [ngClass]="{'active-link': isActive('/login')}">LOGIN</a>
+  </div></ng-template>

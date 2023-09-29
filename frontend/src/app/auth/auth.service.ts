@@ -5,20 +5,32 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  isLoggedIn = false
+  isLoggedIn = true
   isAdmin = true
 
   isAutenticated(){
     return this.isLoggedIn
   }
+
   isRoleAdmin(){
     return this.isAdmin
   }
+
   setAuthenticated(){
-    this.isLoggedIn = !this.isLoggedIn
-    console.log("auth is: "+this.isLoggedIn)
+    if(localStorage.getItem('jwtToken') == null){
+       this.isLoggedIn = false
+    } else{
+      this.isLoggedIn == true
+    } 
   }
+
   setRoleAdmin(){
-    this.isAdmin = !this.isAdmin
+    if(localStorage.getItem('userRole') == "ADMIN"){
+      this.isAdmin = true
+    }
+    else{
+      this.isAdmin = false
+    }
   }
+  
 }

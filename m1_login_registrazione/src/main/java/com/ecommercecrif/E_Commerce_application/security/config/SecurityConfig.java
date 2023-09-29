@@ -45,6 +45,8 @@ public class SecurityConfig {
     private final RsaKeyProperties rsaKeys;
     private static final Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
 
+
+
     @Bean
     JwtDecoder jwtDecoder() {
         return NimbusJwtDecoder.withPublicKey(rsaKeys.publicKey()).build();
@@ -82,7 +84,7 @@ public class SecurityConfig {
     @Order(2)
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http// by default use a bean by the name of corsConfigurationSource
-                //.cors(Customizer.withDefaults())
+                .cors(Customizer.withDefaults())
                 .csrf(csrf -> csrf.disable())
                 //nota bene disabilitare crsf e non impostare su Stateless le session è una bad practice per la sicurezza
                 //Necessario per visualizzare l'interfaccia web di h2 DB
@@ -103,7 +105,6 @@ public class SecurityConfig {
                 //By default, this wires a BearerTokenAuthenticationFilter, which can be used to parse the request for bearer tokens(of type JWT) and make an authentication attempt.
                 .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                //.httpBasic(withDefaults())
                 .build();
     }
 

@@ -31,7 +31,7 @@ public class AdminController {
         this.userMapper = userMapper;
     }
     @Operation(summary = "get-all-users")
-    @GetMapping("admin/find-all-users")
+    @GetMapping("admin/get-all-users-details")
     @PreAuthorize("hasAuthority('SCOPE_[ADMIN]')")
     public Collection<UserEntity> getAllUsers(){
         return userService.findAll();

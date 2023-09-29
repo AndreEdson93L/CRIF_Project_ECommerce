@@ -1,0 +1,4 @@
+<div *ngIf="this.isAuthenticated; else elseBlock">
+    <p>Hi {{userNickname}},Welcome to the Home Page!!</p><!--  -->
+</div>
+<ng-template #elseBlock><p>Welcome to the Home Page!!</p></ng-template>

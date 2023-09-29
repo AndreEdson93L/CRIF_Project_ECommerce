@@ -91,10 +91,10 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public UserEntity getUserByEmailInJwt(String token) {
+    public UserResponseDTO getUserByEmailInJwt(String token) {
         String email = jwtService.extractUsername(token);
-        return repository.findByEmail(email)
-                .orElseThrow(()-> new UserNotFoundException(email));
+        return userMapper.userEntityToDto(repository.findByEmail(email)
+                .orElseThrow(()-> new UserNotFoundException(email)));
     }
 
 
@@ -154,8 +154,6 @@ public class UserServiceImpl implements UserService{
     if(!updateUserDTO.getNickname().isEmpty()){
         userToUpdate.setNickname(updateUserDTO.getNickname());
     }
-
-    if(updateUserDTO.getNickname().isEmpty() && updateUserDTO.getEmail().isEmpty())
 
 
         //saving user in the repo

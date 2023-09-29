@@ -35,7 +35,7 @@ public class UserController {
 
     @Operation(summary = "get-User-By-Email-contained-in-jwt")
     @GetMapping("get-user-details")
-    public UserEntity getUser(@RequestHeader (name="Authorization") String token){
+    public UserResponseDTO getUser(@RequestHeader (name="Authorization") String token){
             return userService.getUserByEmailInJwt(token);
     }
 
