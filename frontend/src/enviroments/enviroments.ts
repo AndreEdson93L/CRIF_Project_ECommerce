@@ -1,7 +1,7 @@
 // environment.ts
 const mAuthPath = "http://localhost:8090/api/v1/authentication"
 const mAccountPath = "http://localhost:8081/api/v1/user-management"
-const mAccountAdminSectionPath = "http://localhost:8081/api/v1/admin-management/admin"
+const mAccountAdminSectionPath = "http://localhost:8081/api/v1/admin-management"
 
 
 //List of all endpoints
@@ -13,6 +13,7 @@ export const environment = {
     deleteUserDetail: mAccountPath+'/delete-user-details',
     updateUserDetail: mAccountPath+'/update-user-details',
     getAllUsersDetails: mAccountAdminSectionPath+'/get-all-users-details',
+    deleteUserAdmin: mAccountAdminSectionPath+'/delete-user'
   };
   
 
@@ -22,7 +23,6 @@ export const environment = {
     environment.deleteUserDetail,
     environment.updateUserDetail,
     environment.getAllUsersDetails,
-
-    
+    environment.deleteUserAdmin
     // add others endpoints
   ];

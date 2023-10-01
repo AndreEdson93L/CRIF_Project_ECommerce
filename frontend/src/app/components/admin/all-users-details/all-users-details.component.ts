@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { AdminService } from 'src/app/services/admin.service';
 
@@ -11,7 +12,7 @@ export class AllUsersDetailsComponent implements OnInit{
 
   @Input() users : User[]|undefined
 
-  constructor(private adminService: AdminService){}
+  constructor(private adminService: AdminService, private router: Router){}
 
   ngOnInit(){
     this.getUsers()
@@ -29,6 +30,20 @@ export class AllUsersDetailsComponent implements OnInit{
         console.log('You Failed!', err);
       },
     });  
-  }  
+  }
 
+  modifyUser() : void {
+    this.router.navigate(["/modify-user-details"])
+  }
+
+  deleteUser(email : string) {
+    console.log("Trying to delete an user...")
+    this.adminService.deleteUser(email)
+    console.log("End method delete");
+    
+  }
+
+  updateUserDetails() : void {
+    
+  }
 }

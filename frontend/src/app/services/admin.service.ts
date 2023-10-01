@@ -18,9 +18,27 @@ export class AdminService {
     console.log(users);
     
     return users
-    /* .pipe(
-      tap(_ => this.log(`fetched user`)),
-      catchError(this.handleError<User>(`getUser`))
-    ); */
+  }
+
+  deleteUser(email: string) : Observable<any> {
+    console.log("Inside delete User Admin method (Service)");
+    
+    const url = environment.deleteUserAdmin;
+
+    let hasBeenDeleted = this.http.delete(url + '/' + email)
+    console.log("End method from the Admin Service");
+    console.log(url+'/'+email);
+    console.log("Delete? ", hasBeenDeleted.subscribe({
+      next: (hasBeenDeleted)=>{
+        console.log(typeof hasBeenDeleted);
+        console.log("hasBeenDelete: ", hasBeenDeleted);
+      },
+      error: (hasBeenDeleted)=>{
+        console.log("BOH !", hasBeenDeleted);
+        
+      }
+    }))
+        
+    return hasBeenDeleted
   }
 }

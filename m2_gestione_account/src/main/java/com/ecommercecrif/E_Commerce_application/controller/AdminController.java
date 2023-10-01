@@ -31,35 +31,35 @@ public class AdminController {
         this.userMapper = userMapper;
     }
     @Operation(summary = "get-all-users")
-    @GetMapping("admin/get-all-users-details")
+    @GetMapping("get-all-users-details")
     @PreAuthorize("hasAuthority('SCOPE_[ADMIN]')")
     public Collection<UserEntity> getAllUsers(){
         return userService.findAll();
     }
 
     @Operation(summary = "get-User-Details-By-Email")
-    @GetMapping("admin/get-user-details/{email}")
+    @GetMapping("get-user-details/{email}")
     @PreAuthorize("hasAuthority('SCOPE_[ADMIN]')")
     public UserResponseDTO getUserDetails(@PathVariable String email){
         return userMapper.userEntityToDto(userService.findByEmail(email));
     }
 
     @Operation(summary =  "update-User-Details")
-    @PutMapping("admin/update-user-details/{email}")
+    @PutMapping("update-user-details/{email}")
     @PreAuthorize("hasAuthority('SCOPE_[ADMIN]')")
     public UserResponseDTO updateUserDetails(@PathVariable String email, @Valid @RequestBody UpdateUserDTO updateUserDTO, @RequestHeader(name = "Authorization") String token){
         return adminService.updateUser(email, token, updateUserDTO);
     }
 
     @Operation(summary = "promote-User-To-Admin")
-    @PutMapping("admin/promote-user/{email}")
+    @PutMapping("promote-user/{email}")
     @PreAuthorize("hasAuthority('SCOPE_[ADMIN]')")
     public UserResponseDTO promoteUserToAdmin(@PathVariable String email, @RequestHeader(name = "Authorization") String token){
         return adminService.promoteToAdmin(email, token);
     }
 
     @Operation(summary = "delete-User")
-    @DeleteMapping("admin/delete-user/{email}")
+    @DeleteMapping("delete-user/{email}")
     @PreAuthorize("hasAuthority('SCOPE_[ADMIN]')")
     public boolean deleteUser(@PathVariable String email, @RequestHeader(name="Authorization") String token) {
         return adminService.deleteByEmail(email, token);
