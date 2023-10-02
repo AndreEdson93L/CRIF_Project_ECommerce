@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user';
@@ -9,7 +9,7 @@ import { AdminService } from 'src/app/services/admin.service';
   templateUrl: './modify-user-detail.component.html',
   styleUrls: ['./modify-user-detail.component.css']
 })
-export class AdminModifyUserDetailComponent {
+export class AdminModifyUserDetailComponent implements OnInit{
 
   @Input() user!: User;
 

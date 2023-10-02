@@ -2,20 +2,23 @@
     <p style="text-transform: uppercase; margin-top: 10px">Lista Utenti</p>
     <div *ngFor="let user of users">
       <a routerLink="{{ user.email }}">
-      <div class="card">
-        <ul>
-          <li>email: {{ user.email }}</li>
-          <li>nickname: {{ user.nickname }}</li>
-          <li>role: {{ user.role }}</li>
-          <li>balance: {{ user.balance }}</li>
-          <li>
-              <!--<button class="btn btn-primary" (click)="modifyUser()">Modify</button>-->
-              <button class="btn btn-danger" (click)="deleteUser(user.email)">Delete</button>
-              <button class="btn btn-success" (click)="updateUserDetails(user.email)">Update</button>
-              <button class="btn btn-success" (click)="upgradeToAdmin(user.email)">Upgrade To Admin</button>
-          </li>
-        </ul>
-      </div>
+        <div class="card">
+          <ul>
+            <li>email: {{ user.email }}</li>
+            <li>nickname: {{ user.nickname }}</li>
+            <li>role: {{ user.role }}</li>
+            <li>balance: {{ user.balance }}</li>
+          </ul>
+        </div>
       </a>
+      <ul>
+        <li>
+          <!--<button class="btn btn-primary" (click)="modifyUser()">Modify</button>-->
+          <button class="btn btn-danger" (click)="deleteUser(user.email)">Delete</button>
+          <button class="btn btn-success" (click)="updateUserDetails(user.email)">Update</button>
+          <button class="btn btn-success" (click)="upgradeToAdmin(user.email)">Upgrade To Admin</button>
+        </li>
+      </ul>
+      
     </div>
 </div>    

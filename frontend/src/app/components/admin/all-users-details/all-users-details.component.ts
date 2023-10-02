@@ -37,17 +37,18 @@ export class AllUsersDetailsComponent implements OnInit{
   deleteUser(email : string) {
     console.log("Trying to delete an user...")
     this.adminService.deleteUser(email)
-    this.getUsers()
+    this.getUsers() 
     
   }
 
   updateUserDetails(email : string) {
-    this.router.navigate(['admin/modify-user-details/'+email])
+    let emailEncoded = encodeURIComponent(email)
+    this.router.navigateByUrl("admin-modify-user-details/"+emailEncoded)
   }
 
   upgradeToAdmin(email : string){
     this.adminService.upgradeToAdmin(email)
-    //this.getUsers()
+    this.getUsers()
   }
 
 }

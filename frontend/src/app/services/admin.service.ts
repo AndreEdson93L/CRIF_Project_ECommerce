@@ -32,9 +32,9 @@ export class AdminService {
 
 
   updateUser(email : string, registerUserDTO: User) {
-    const url = environment.updateUserDetail
+    const url = environment.updateUserAdmin
     
-    let user : any =  this.http.patch(url, registerUserDTO, { headers: { 'Content-Type': 'application/json' } });
+    let user : any =  this.http.put(url, registerUserDTO, { headers: { 'Content-Type': 'application/json' } });
     return user
   }
   

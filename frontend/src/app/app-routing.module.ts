@@ -15,15 +15,14 @@ const routes: Routes = [
   /*{path: 'users', component: UsersListComponent, canActivate: [authGuard], canActivateChild: [authGuardChild], children: [
      {path: ':id', component: UserDetailComponent}, 
   ] },*/
-  { path: '', component: DashboardComponent },
+  { path: 'home', component: DashboardComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component:  OfficialLoginComponent},
   { path: 'user-details', component:  UserDetailComponent, canActivate: [authGuard]},
   { path: 'modify-user-details', component:  ModifyUserDetailsComponent, canActivate: [authGuard]},
-  { path: 'admin/all-users-details', component:  AllUsersDetailsComponent, canActivate: [authGuard , authGuardRole],children: [
-    {path: ':email', component: AdminUserDetailComponent}, ] 
-  },
-  { path: 'admin/modify-user-details/:email', component:  AdminModifyUserDetailComponent, },//canActivate: [authGuard]
+  { path: 'admin-all-users-details', component:  AllUsersDetailsComponent, canActivate: [authGuard , authGuardRole]},
+  { path: 'admin-modify-user-details/:email', component:  AdminModifyUserDetailComponent, canActivate: [authGuard]},//
+  { path: '*', redirectTo : 'home' },
 ];
 
 @NgModule({
