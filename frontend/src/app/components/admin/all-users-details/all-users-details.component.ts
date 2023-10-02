@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { FormGroup } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { AdminService } from 'src/app/services/admin.service';
 
@@ -32,18 +33,21 @@ export class AllUsersDetailsComponent implements OnInit{
     });  
   }
 
-  modifyUser() : void {
-    this.router.navigate(["/modify-user-details"])
-  }
 
   deleteUser(email : string) {
     console.log("Trying to delete an user...")
     this.adminService.deleteUser(email)
-    console.log("End method delete");
+    this.getUsers()
     
   }
 
-  updateUserDetails() : void {
-    
+  updateUserDetails(email : string) {
+    this.router.navigate(['admin/modify-user-details/'+email])
   }
+
+  upgradeToAdmin(email : string){
+    this.adminService.upgradeToAdmin(email)
+    //this.getUsers()
+  }
+
 }

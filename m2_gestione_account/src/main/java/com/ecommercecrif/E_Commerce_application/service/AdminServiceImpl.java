@@ -3,6 +3,7 @@ package com.ecommercecrif.E_Commerce_application.service;
 import com.ecommercecrif.E_Commerce_application.mapper.UserMapper;
 import com.ecommercecrif.E_Commerce_application.model.EnumRole;
 import com.ecommercecrif.E_Commerce_application.model.UserEntity;
+import com.ecommercecrif.E_Commerce_application.model.dto.UpdateRoleDTO;
 import com.ecommercecrif.E_Commerce_application.model.dto.UpdateUserDTO;
 import com.ecommercecrif.E_Commerce_application.model.dto.UserResponseDTO;
 import com.ecommercecrif.E_Commerce_application.repository.UserRepository;
@@ -38,14 +39,13 @@ public class AdminServiceImpl implements AdminService {
         String url = "http://AUTHENTICATION-MANAGEMENT/api/v1/authentication/admin/promote-user/" +email;
 
         UserEntity userToUpdate = repository.findByEmail(email).orElseThrow(NotFoundException::new);
-        userToUpdate.setRole(EnumRole.ADMIN);
+        userToUpdate.setRole(EnumRole.valueOf("ADMIN"));
 
         HttpEntity<String> entity = createHttpEntityWithJwtHeader(token);
 
         restTemplate.exchange(url, HttpMethod.PUT, entity, UserResponseDTO.class);
 
         repository.save(userToUpdate);
-
         return userMapper.userEntityToDto(userToUpdate);
     }
 

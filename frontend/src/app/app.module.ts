@@ -21,7 +21,7 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ModifyUserDetailsComponent } from './components/user/modify-user-details/modify-user-details.component';
 import { AllUsersDetailsComponent } from './components/admin/all-users-details/all-users-details.component';
-import { AdminModifyUserDetailComponent } from './components/admin/modify-user-detail/modify-user-detail.component';
+import { AdminModifyUserDetailComponent} from './components/admin/modify-user-detail/modify-user-detail.component';
 
 @NgModule({
   declarations: [

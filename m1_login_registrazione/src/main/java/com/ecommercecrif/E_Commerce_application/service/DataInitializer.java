@@ -1,5 +1,3 @@
-
-/*
 package com.ecommercecrif.E_Commerce_application.service;
 import com.ecommercecrif.E_Commerce_application.model.EnumRole;
 import com.ecommercecrif.E_Commerce_application.model.UserEntity;
@@ -20,18 +18,18 @@ public class DataInitializer {
     @PostConstruct
     public void initData(){
         // Kenny is poor, so he has a low balance
-        repository.save(new UserEntity("Kenny_McCormick", passwordEncoder.encode("kennyPass"),  EnumRole.valueOf("USER")));
+        repository.save(new UserEntity("kenny@southpark.com", passwordEncoder.encode("kennyPass"),  EnumRole.valueOf("USER")));
 
         // Cartman
-        repository.save(new UserEntity( "Eric_Cartman", passwordEncoder.encode("cartmanPass"), EnumRole.valueOf("USER")));
+        repository.save(new UserEntity( "cartman@southpark.com", passwordEncoder.encode("cartmanPass"), EnumRole.valueOf("USER")));
 
         // Stan
-        repository.save(new UserEntity("Stan_Marsh", passwordEncoder.encode("stanPass"), EnumRole.valueOf("USER")));
+        repository.save(new UserEntity("stan@southpark.com", passwordEncoder.encode("stanPass"), EnumRole.valueOf("USER")));
 
         // Kyle
-        repository.save(new UserEntity("Kyle_Broflovski", passwordEncoder.encode("kylePass"), EnumRole.valueOf("USER")));
+        repository.save(new UserEntity("kyle@southpark.com", passwordEncoder.encode("kylePass"), EnumRole.valueOf("USER")));
 
         // Chef
         repository.save(new UserEntity("chef@southpark.com", passwordEncoder.encode("chefPass"), EnumRole.valueOf("ADMIN")));
     }
-}*/
+}

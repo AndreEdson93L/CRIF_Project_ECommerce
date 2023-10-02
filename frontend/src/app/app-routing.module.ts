@@ -21,10 +21,9 @@ const routes: Routes = [
   { path: 'user-details', component:  UserDetailComponent, canActivate: [authGuard]},
   { path: 'modify-user-details', component:  ModifyUserDetailsComponent, canActivate: [authGuard]},
   { path: 'admin/all-users-details', component:  AllUsersDetailsComponent, canActivate: [authGuard , authGuardRole],children: [
-    {path: ':email', component: AdminUserDetailComponent}, 
-    { path: 'modify-user-details/:email', component:  AdminModifyUserDetailComponent, canActivate: [authGuard]},
-  
- ] },
+    {path: ':email', component: AdminUserDetailComponent}, ] 
+  },
+  { path: 'admin/modify-user-details/:email', component:  AdminModifyUserDetailComponent, },//canActivate: [authGuard]
 ];
 
 @NgModule({

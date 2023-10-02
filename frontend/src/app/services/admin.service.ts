@@ -8,8 +8,38 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AdminService {
-  
+
   constructor(private http : HttpClient) { }
+
+  upgradeToAdmin(email : string) {
+    const url = environment.promoteUserAdmin;
+    console.log(url+"/"+email );
+    
+
+    let userResponse : Observable<any>=  this.http.put(url+"/"+email, {});
+    console.log("Upgrade? ", userResponse.subscribe({
+      next: (userResponse)=>{
+        console.log(typeof userResponse);
+        console.log("hasBeenUpgraded: ", userResponse);
+      },
+      error: (userResponse)=>{
+        console.log("BOH !", userResponse);
+        
+      }
+    }))
+  }
+
+
+
+  updateUser(email : string, registerUserDTO: User) {
+    const url = environment.updateUserDetail
+    
+    let user : any =  this.http.patch(url, registerUserDTO, { headers: { 'Content-Type': 'application/json' } });
+    return user
+  }
+  
+  
+  
 
   getUsers() : Observable<User[]> {
     const url = environment.getAllUsersDetails;
@@ -26,8 +56,7 @@ export class AdminService {
     const url = environment.deleteUserAdmin;
 
     let hasBeenDeleted = this.http.delete(url + '/' + email)
-    console.log("End method from the Admin Service");
-    console.log(url+'/'+email);
+    
     console.log("Delete? ", hasBeenDeleted.subscribe({
       next: (hasBeenDeleted)=>{
         console.log(typeof hasBeenDeleted);
@@ -40,5 +69,13 @@ export class AdminService {
     }))
         
     return hasBeenDeleted
+  }
+
+  getUser(email: string) : Observable<User> {
+    const url = environment.getUserAdmin;
+    let user : any = this.http.get<User>(url)
+    
+    
+    return user
   }
 }

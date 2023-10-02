@@ -28,11 +28,17 @@ export class AuthInterceptorService implements HttpInterceptor {
     const jwtObj = localStorage.getItem('jwtToken');
     const jwt = jwtObj?.slice(10,length-2)
     let url = request.url
+    console.log("Interceptor request url: ",request.url);
+    
 
     if(url.includes("http://localhost:8081/api/v1/admin-management")){
+      console.log("sono qua!");
+      
       if(!url.includes("get-all-users-details")){
+        console.log("sono qui!");
         let x = request.url.lastIndexOf("/")
         url = request.url.slice(0, x)
+        console.log("questa è la url troncata: "+url)
       }
     }
     

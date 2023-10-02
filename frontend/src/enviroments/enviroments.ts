@@ -13,7 +13,10 @@ export const environment = {
     deleteUserDetail: mAccountPath+'/delete-user-details',
     updateUserDetail: mAccountPath+'/update-user-details',
     getAllUsersDetails: mAccountAdminSectionPath+'/get-all-users-details',
-    deleteUserAdmin: mAccountAdminSectionPath+'/delete-user'
+    deleteUserAdmin: mAccountAdminSectionPath+'/delete-user',
+    promoteUserAdmin: mAccountAdminSectionPath+'/promote-user',
+    updateUserAdmin: mAccountAdminSectionPath+'/update-user-details',
+    getUserAdmin: mAccountAdminSectionPath+'/get-user-details',
   };
   
 
@@ -23,6 +26,9 @@ export const environment = {
     environment.deleteUserDetail,
     environment.updateUserDetail,
     environment.getAllUsersDetails,
-    environment.deleteUserAdmin
+    environment.deleteUserAdmin,
+    environment.promoteUserAdmin,
+    environment.updateUserAdmin,
+    environment.getUserAdmin,
     // add others endpoints
   ];

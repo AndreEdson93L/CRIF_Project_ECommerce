@@ -2,6 +2,7 @@ package com.ecommercecrif.E_Commerce_application.service;
 
 
 import com.ecommercecrif.E_Commerce_application.model.UserEntity;
+import com.ecommercecrif.E_Commerce_application.model.dto.UpdateRoleDTO;
 import com.ecommercecrif.E_Commerce_application.model.dto.UpdateUserDTO;
 import com.ecommercecrif.E_Commerce_application.model.dto.UserResponseDTO;
 import org.springframework.http.HttpEntity;
