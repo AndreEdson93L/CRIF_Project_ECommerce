@@ -43,7 +43,7 @@ export class UserDetailComponent {
         this.hasBeenDeleted = hasBeenDeleted
         console.log("ciao")
         localStorage.clear()
-        this.router.navigate(["/"])
+        this.router.navigate(["/home"])
       },
       error: (err) => {
         console.log('You Failed!', err);

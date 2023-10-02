@@ -48,12 +48,8 @@ export class AdminService {
   
 
   getUsers() : Observable<User[]> {
-    const url = environment.getAllUsersDetails;
-    
-    let users : any = this.http.get<User[]>(url)
-    console.log(users);
-    
-    return users
+    const url = environment.getAllUsersDetails; 
+    return this.http.get<User[]>(url)
   }
 
   deleteUser(email: string) : Observable<any> {

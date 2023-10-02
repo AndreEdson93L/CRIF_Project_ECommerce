@@ -39,7 +39,12 @@ public class AdminServiceImpl implements AdminService {
         String url = "http://AUTHENTICATION-MANAGEMENT/api/v1/authentication/admin/promote-user/" +email;
 
         UserEntity userToUpdate = repository.findByEmail(email).orElseThrow(NotFoundException::new);
-        userToUpdate.setRole(EnumRole.valueOf("ADMIN"));
+        if(userToUpdate.getRole().equals(EnumRole.ADMIN)){
+            userToUpdate.setRole(EnumRole.valueOf("USER"));
+        }else {
+            userToUpdate.setRole(EnumRole.valueOf("ADMIN"));
+        }
+
 
         HttpEntity<String> entity = createHttpEntityWithJwtHeader(token);
 

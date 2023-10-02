@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Route, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user';
 import { AdminService } from 'src/app/services/admin.service';
 
@@ -13,12 +14,15 @@ export class AllUsersDetailsComponent implements OnInit {
 
   @Input() users : User[]|undefined
 
+  dataSubscription : any;
+
   constructor(
     private adminService: AdminService, 
     private router: Router){}
 
   ngOnInit(){
     this.getUsers()
+    
   }
   /*
   getUsers(): void {
@@ -36,19 +40,24 @@ export class AllUsersDetailsComponent implements OnInit {
   }
   */
 
-  getUsers(): void {
+  getUsers() {
+    if (this.dataSubscription) {  // cancel pending HTTP requests before triggering new request
+      this.dataSubscription.unsubscribe();
+    }
 
-    this.adminService.getUsers().subscribe({
-      next: (users) =>{
+    this.dataSubscription = this.adminService.getUsers().subscribe({
+      next: (users ) =>{
         console.log("User details: ", users)
         this.users = users
         console.log(this.users)
+         
       },
       error: (err) => {
         console.log('You Failed!', err);
-      },
-    });  
-  }
+      }
+    })
+  };
+
 
   deleteUser(email : string) {
     console.log("Trying to delete an user...")
@@ -63,6 +72,6 @@ export class AllUsersDetailsComponent implements OnInit {
   
   upgradeToAdmin(email : string){
     this.adminService.upgradeToAdmin(email)
-    //this.getUsers()
+    this.getUsers()
   }
 }
