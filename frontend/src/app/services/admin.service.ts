@@ -3,13 +3,16 @@ import { Observable } from 'rxjs';
 import { User } from '../models/user';
 import { environment } from 'src/enviroments/enviroments';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
 
-  constructor(private http : HttpClient) { }
+  constructor(
+    private http : HttpClient,
+    private router : Router) { }
 
   upgradeToAdmin(email : string) {
     const url = environment.promoteUserAdmin;
@@ -32,9 +35,12 @@ export class AdminService {
 
 
   updateUser(email : string, registerUserDTO: User) {
-    const url = environment.updateUserAdmin
+    let url = environment.updateUserAdmin + "/" + email;
     
     let user : any =  this.http.put(url, registerUserDTO, { headers: { 'Content-Type': 'application/json' } });
+    url = ''
+    this.router.navigateByUrl('/admin-all-users-details');
+
     return user
   }
   

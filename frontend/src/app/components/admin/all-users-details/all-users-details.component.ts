@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { User } from 'src/app/models/user';
@@ -9,15 +9,32 @@ import { AdminService } from 'src/app/services/admin.service';
   templateUrl: './all-users-details.component.html',
   styleUrls: ['./all-users-details.component.css']
 })
-export class AllUsersDetailsComponent implements OnInit{
+export class AllUsersDetailsComponent implements OnInit {
 
   @Input() users : User[]|undefined
 
-  constructor(private adminService: AdminService, private router: Router){}
+  constructor(
+    private adminService: AdminService, 
+    private router: Router){}
 
   ngOnInit(){
     this.getUsers()
   }
+  /*
+  getUsers(): void {
+
+    this.adminService.getUsers().subscribe({
+      next: (users) =>{
+        console.log("User details: ", users)
+        this.users = users
+        console.log(this.users)
+      },
+      error: (err) => {
+        console.log('You Failed!', err);
+      },
+    });  
+  }
+  */
 
   getUsers(): void {
 
@@ -33,22 +50,19 @@ export class AllUsersDetailsComponent implements OnInit{
     });  
   }
 
-
   deleteUser(email : string) {
     console.log("Trying to delete an user...")
     this.adminService.deleteUser(email)
-    this.getUsers() 
+    this.getUsers()
     
   }
-
+  
   updateUserDetails(email : string) {
-    let emailEncoded = encodeURIComponent(email)
-    this.router.navigateByUrl("admin-modify-user-details/"+emailEncoded)
+    this.router.navigateByUrl('admin-modify-user-details/' + email)
   }
-
+  
   upgradeToAdmin(email : string){
     this.adminService.upgradeToAdmin(email)
-    this.getUsers()
+    //this.getUsers()
   }
-
 }

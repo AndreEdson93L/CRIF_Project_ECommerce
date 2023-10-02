@@ -16,6 +16,8 @@ export class OfficialLoginComponent {
 
   //component method used to call [login of auth service]
   login(): void {
+    console.log("Login Init Funz: ");
+    
     let hasBeeenSucces = false
     this.loginService.login(this.username, this.password).subscribe({
       next: (data) => {
@@ -26,7 +28,13 @@ export class OfficialLoginComponent {
         const helloJwt = localStorage.getItem('jwtToken');
         console.log(helloJwt);
         hasBeeenSucces = true
+
+        console.log("Set to true var true login: ", hasBeeenSucces);
+        
+
         if(hasBeeenSucces){
+          console.log("Inside route redirect login... ");
+          
           this.router.navigate(["/user-details"])
         }/* else{
           this.router.navigate(["/gandalf-page"])

@@ -9,6 +9,9 @@ export class AuthService {
   isAdmin = true
 
   isAutenticated(){
+    console.log("GUARD CONTROL.. inside service guard");
+    console.log("IsLoggedId: " + this.isLoggedIn);
+    
     return this.isLoggedIn
   }
 

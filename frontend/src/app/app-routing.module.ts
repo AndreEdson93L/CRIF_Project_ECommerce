@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'user-details', component:  UserDetailComponent, canActivate: [authGuard]},
   { path: 'modify-user-details', component:  ModifyUserDetailsComponent, canActivate: [authGuard]},
   { path: 'admin-all-users-details', component:  AllUsersDetailsComponent, canActivate: [authGuard , authGuardRole]},
-  { path: 'admin-modify-user-details/:email', component:  AdminModifyUserDetailComponent, canActivate: [authGuard]},//
+  { path: 'admin-modify-user-details/:email', component:  AdminModifyUserDetailComponent, canActivate: [authGuard, authGuardRole]},//
   { path: '*', redirectTo : 'home' },
 ];
 
