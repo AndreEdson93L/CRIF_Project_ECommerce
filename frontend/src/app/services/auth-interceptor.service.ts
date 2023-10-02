@@ -27,10 +27,16 @@ export class AuthInterceptorService implements HttpInterceptor {
 
     const jwtObj = localStorage.getItem('jwtToken');
     const jwt = jwtObj?.slice(10,length-2)
+    let url = request.url
 
-
+    if(url.includes("http://localhost:8081/api/v1/admin-management")){
+      if(!url.includes("get-all-users-details")){
+        let x = request.url.lastIndexOf("/")
+        url = request.url.slice(0, x)
+      }
+    }
     
-    if (jwt && includedUrls.includes(request.url)) {    
+    if (jwt && (includedUrls.includes(request.url)|| includedUrls.includes(url))) {    
       console.log("inside interceptor modifications");
       const requestWithJwt = request.clone({
         setHeaders: {
