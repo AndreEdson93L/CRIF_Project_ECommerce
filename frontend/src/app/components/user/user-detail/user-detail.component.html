@@ -1,0 +1,29 @@
+<!-- <p>{{user | json}}</p>
+<div *ngIf="user">
+    <p>{{user.nickname}}</p>
+</div> -->
+<div *ngIf="user" class="card">
+    <div class="card-body">
+    <h5 class="card-title">{{ user.nickname }} Details</h5>
+    <div  class="card-text">
+        
+      <label for="user-nickname">User nickname: </label>
+      <!-- two way binding  data can flow in both directions. 
+        Data can flow from the crisis.name property to the text box
+         and from the text box back to the crisis.name.-->
+      <p id="user-nickname">{{user.nickname}}</p>
+      <br>
+      <label for="user-email">User email: </label>
+      <p id="user-email">{{user.email}}</p>
+      <br>
+      <label for="user-role">User role: </label>
+      <p id="user-role">{{user.role}}</p>
+      <br>
+      <label for="user-balance">User balance: </label>
+      <p id="user-balance">{{user.balance}}</p>
+    </div>
+    
+    <button class="btn btn-primary" (click)="onClickModify()">modify</button>
+    <button class="btn btn-danger" (click)="onClickDelete()">Delete</button>
+</div>
+</div>  
