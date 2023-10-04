@@ -1,24 +1,26 @@
-<div>
-    <p style="text-transform: uppercase; margin-top: 10px">Lista Utenti</p>
-    <div *ngFor="let user of users">
-      <a routerLink="{{ user.email }}">
-        <div class="card">
-          <ul>
-            <li>email: {{ user.email }}</li>
-            <li>nickname: {{ user.nickname }}</li>
-            <li>role: {{ user.role }}</li>
-            <li>balance: {{ user.balance }}</li>
-          </ul>
+<div class="container-fluid mt-5 mb-5" style="overflow-x: auto; white-space: nowrap; height: 100vh;">
+  <div *ngFor="let user of users" style="display: inline-block; margin-right: 20px;">
+    <div class="card bg-dark text-light" style="width: 18rem;">
+      <img class="card-img-top" src="assets/morty.jpg" alt="Profile Image">
+      <div class="card-body">
+        <h5 class="card-title text-primary">{{ user.nickname }}</h5>
+        <div class="card-text mb-3"> 
+          <label class="font-weight-bold text-info">User nickname:</label>
+          <p>{{ user.nickname }}</p>
+
+          <label class="font-weight-bold text-info">User email:</label>
+          <p>{{ user.email }}</p>
+
+          <label class="font-weight-bold text-info">User role:</label>
+          <p>{{ user.role }}</p>
+
+          <label class="font-weight-bold text-info">User balance:</label>
+          <p>{{ user.balance }}</p>
         </div>
-      </a>
-      <ul>
-        <li>
-          <!--<button class="btn btn-primary" (click)="modifyUser()">Modify</button>-->
-          <button class="btn btn-danger" (click)="deleteUser(user.email)">Delete</button>
-          <button class="btn btn-success" (click)="updateUserDetails(user.email)">Update</button>
-          <button class="btn btn-success" (click)="upgradeToAdmin(user.email)">Change User Role</button>
-        </li>
-      </ul>
-      
+        <button class="btn btn-primary" style="margin-top: 10px;" (click)="updateUserDetails(user.email)">Modify</button>
+        <button class="btn btn-success" style="margin-top: 10px;" (click)="upgradeToAdmin(user.email)">Switch Role</button>
+        <button class="btn btn-warning" style="margin-top: 10px;" (click)="deleteUser(user.email)">Delete</button>
+      </div>
     </div>
-</div>    
+  </div>
+</div>
