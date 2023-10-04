@@ -1,14 +1,27 @@
-<div id="navbar" class="navbar" *ngIf="true; else elseBlock">
-    <a routerLink="/" [ngClass]="{'active-link': isActive('/')}">HOME</a>
-    <a routerLink="/user-details" [ngClass]="{'active-link': isActive('/user-details')}">USER DETAILS</a>
-    <a routerLink="/admin-all-users-details" [ngClass]="{'active-link': isActive('/users')}">USERS-LIST</a>
-    <a routerLink="/register" [ngClass]="{'active-link': isActive('/register')}">REGISTER</a>
-    <a routerLink="/login" [ngClass]="{'active-link': isActive('/login')}">LOGIN</a>
+<!-- TEST NAVBAR -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img 
+        src="assets/rocket.png"
+        width="32 px" height="32px"
+        alt="Let's go to the moon again"
+        aria-current="page"
+      >
+      ECommerce
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" routerLink="/user-details" routerLinkActive="active-link">Profile</a>
+        <a class="nav-link" routerLink="/admin-all-users-details" routerLinkActive="active-link">Users</a>
+        <a class="nav-link" routerLink="/register" routerLinkActive="active-link">Register</a>
+        <a class="nav-link" routerLink="/login" routerLinkActive="active-link">Login</a>
+        <a class="nav-link disabled" aria-disabled="true">Show disabled link</a>
+      </div>
+    </div>
   </div>
-  <ng-template #elseBlock>
-    <div id="navbar" class="navbar">
-    <a routerLink="/" [ngClass]="{'active-link': isActive('/')}">HOME</a>
-    <a routerLink="/user-details" [ngClass]="{'active-link': isActive('/user-details')}">USER DETAILS</a>
-    <a routerLink="/register" [ngClass]="{'active-link': isActive('/register')}">REGISTER</a>
-    <a routerLink="/login" [ngClass]="{'active-link': isActive('/login')}">LOGIN</a>
-  </div></ng-template>
+</nav>
