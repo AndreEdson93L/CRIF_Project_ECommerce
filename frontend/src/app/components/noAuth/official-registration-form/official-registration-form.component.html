@@ -1,53 +1,66 @@
-<div class="d-flex justify-content-center align-items-center vh-100">
-  <form [formGroup]="registerForm" (ngSubmit)="register()">
-    <div class="form-group">
-      <input
-        formControlName="email"
-        class="form-control"
-        [ngClass]="{
-          'is-invalid':
-            registerForm.controls['email'].touched &&
-            registerForm.controls['email'].invalid
-        }"
-        placeholder="Email"
-      />
-    </div>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="col-md-6 border p-4 bg-dark border border-primary rounded"> <!-- Adjust the number of columns based on your desired maximum width -->
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <div class="mb-3">
+        <label class="form-label text-light">Email address</label>
+        <input
+          formControlName="email"
+          type="email"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              registerForm.controls['email'].touched &&
+              registerForm.controls['email'].invalid
+          }"
+          placeholder="Email"
+        />
+        <div id="emailHelp" class="form-text text-info">We'll never share your email with anyone else.</div>
+      </div>
 
-    <input
-      formControlName="password"
-      class="form-control"
-      type="password"
-      [ngClass]="{
-        'is-invalid':
-          registerForm.controls['password'].touched &&
-          registerForm.controls['password'].invalid
-      }"
-      placeholder="Password"
-    />
-    <div
-      *ngIf="
-        registerForm.controls['password'].touched &&
-        registerForm.controls['password'].hasError('weakPassword')
-      "
-      class="invalid-feedback"
-    >
-      Password must have at least one uppercase, one lowercase, one special
-      character, and be between 8-25 characters long.
-    </div>
+      <div class="mb-3">
+        <label class="form-label text-light">Password</label>
+        <input
+          formControlName="password"
+          type="password"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              registerForm.controls['password'].touched &&
+              registerForm.controls['password'].invalid
+          }"
+          placeholder="Password"
+        />
+        <div
+          *ngIf="
+            registerForm.controls['password'].touched &&
+            registerForm.controls['password'].hasError('weakPassword')
+          "
+          class="invalid-feedback"
+        >
+          Password must have at least one uppercase, one lowercase, one special character, and be between 8-25 characters long.
+        </div>
+      </div>
 
-    <div class="form-group">
-      <input
-        formControlName="nickname"
-        class="form-control"
-        [ngClass]="{
-          'is-invalid':
-            registerForm.controls['nickname'].touched &&
-            registerForm.controls['nickname'].invalid
-        }"
-        placeholder="Nickname"
-      />
-    </div>
+      <div class="mb-3">
+        <label class="form-label text-light">Nickname</label>
+        <input
+          formControlName="nickname"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              registerForm.controls['nickname'].touched &&
+              registerForm.controls['nickname'].invalid
+          }"
+          placeholder="Nickname"
+        />
+      </div>
 
-    <button type="submit" class="btn btn-primary">Register</button>
-  </form>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label text-light" for="exampleCheck">Accept privacy policy</label>
+      </div>
+
+      <button type="submit" class="btn btn-success">Register</button>
+    </form>
+  </div>
 </div>
