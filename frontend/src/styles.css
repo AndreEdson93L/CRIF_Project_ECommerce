@@ -1,4 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+    background-color: #002952; /* Dark charcoal color */
+    background-image: url('assets/dance1.gif'); /* Path to background image */
+    background-size: contain; /* Ensure the image is contained within the element */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-attachment: fixed; /* Fix the background image, so it doesn't move when scrolling */
+    background-position: center; /* Center the background image */
+  }
+  

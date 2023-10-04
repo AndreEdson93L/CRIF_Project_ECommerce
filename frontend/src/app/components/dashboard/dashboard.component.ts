@@ -17,16 +17,10 @@ export class DashboardComponent {
   constructor(private userService : UserService){}
 
   ngOnInit(): void {
-    if(localStorage.getItem('jwtToken') == null){
-      console.log("not authenticated")
-    } else{
-      this.isAuthenticated = true
-      
-    }
-    if(this.isAuthenticated){
-
-      this.userNickname = localStorage.getItem('userNickname')
-      this.userRole= localStorage.getItem('userRole')
+    this.getUser();
+    if(!this.user == null){
+      localStorage.setItem('userNickname', this.user.nickname)
+      localStorage.setItem('userRole', this.user.role)
     }
   }
   

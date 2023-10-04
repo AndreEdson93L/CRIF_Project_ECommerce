@@ -1,4 +1,7 @@
-<div *ngIf="this.isAuthenticated; else elseBlock">
-    <p>Hi {{userNickname}},Welcome to the Home Page!!</p><!--  -->
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card text-center bg-dark" style="max-width: 32rem;">
+      <div class="card-body">
+        <h5 class="card-text text-info" id="user-nickname">Welcome to the Home Page {{ user.nickname }}!</h5>
+      </div>
+    </div>
 </div>
-<ng-template #elseBlock><p>Welcome to the Home Page!!</p></ng-template>
