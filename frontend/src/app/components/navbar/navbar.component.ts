@@ -23,5 +23,14 @@ constructor(private router: Router) { }
   }
 
   ngOnChanges(){}
-  
+
+  logout(): void{
+    
+    console.log("Logout has been called");
+    localStorage.clear();
+    console.log("localStorage has been clean up");
+    
+
+    //this.router.navigate(['/home']);
+  }
 }
