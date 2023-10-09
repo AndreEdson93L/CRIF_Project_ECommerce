@@ -1,7 +1,17 @@
-<div class="container d-flex justify-content-center align-items-center vh-100">
-    <div class="card text-center bg-dark" style="max-width: 32rem;">
-      <div class="card-body">
-        <h5 class="card-text text-info" id="user-nickname">Welcome to the Home Page {{ user.nickname }}!</h5>
-      </div>
+<div *ngIf="user; else noUser" class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card text-center bg-dark" style="max-width: 32rem;">
+    <div class="card-body">
+      <h5 class="card-text text-info" id="user-nickname">Welcome to the Home Page {{ user.nickname }}!</h5>
     </div>
+  </div>
 </div>
+
+<ng-template #noUser>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card text-center bg-dark" style="max-width: 32rem;">
+    <div class="card-body">
+      <h5 class="card-text text-info" id="user-nickname">Welcome to the Home Page Guest!</h5>
+    </div>
+  </div>
+</div>
+</ng-template>

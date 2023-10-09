@@ -66,6 +66,4 @@ private handleError<T>(operation = 'operation', result?: T) {
     let user : any =  this.http.put(url, registerUserDTO, { headers: { 'Content-Type': 'application/json' } });
     return user
   }
-
-
 }

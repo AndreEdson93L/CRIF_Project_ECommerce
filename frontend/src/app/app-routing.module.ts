@@ -15,9 +15,10 @@ const routes: Routes = [
   /*{path: 'users', component: UsersListComponent, canActivate: [authGuard], canActivateChild: [authGuardChild], children: [
      {path: ':id', component: UserDetailComponent}, 
   ] },*/
+  { path: '', redirectTo: '/login', pathMatch: 'full'},
+  { path: 'login', component:  OfficialLoginComponent},
   { path: 'home', component: DashboardComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'login', component:  OfficialLoginComponent},
   { path: 'user-details', component:  UserDetailComponent, canActivate: [authGuard]},
   { path: 'modify-user-details', component:  ModifyUserDetailsComponent, canActivate: [authGuard]},
   { path: 'admin-all-users-details', component:  AllUsersDetailsComponent, canActivate: [authGuard , authGuardRole]},

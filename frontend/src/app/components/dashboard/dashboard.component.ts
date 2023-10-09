@@ -11,19 +11,25 @@ export class DashboardComponent {
 
   public user!: User;
   public isAuthenticated = false
-  public userNickname : string | null | undefined
-  
+  public userNickname: string | null | undefined
   public userRole : string | null | undefined
+
   constructor(private userService : UserService){}
 
   ngOnInit(): void {
+    let user = localStorage.getItem('user');
+    if(user){
+      this.user = JSON.parse(user);
+    } 
+    /*
     this.getUser();
     if(!this.user == null){
       localStorage.setItem('userNickname', this.user.nickname)
       localStorage.setItem('userRole', this.user.role)
     }
+    */
   }
-  
+  /*  
   getUser(): void {
 
     this.userService.getUser().subscribe({
@@ -41,4 +47,5 @@ export class DashboardComponent {
   getUserNickname() : string| undefined{
     return this.user?.nickname;
   }
+  */
 }
