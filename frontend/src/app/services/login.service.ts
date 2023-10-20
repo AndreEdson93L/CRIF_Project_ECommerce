@@ -26,7 +26,6 @@ export class LoginService {
   }
 
   loggedIn(){
-    console.log("ciao loginService emitChange");
     this.emitChangeSource.next(true)
   }
   loggedOut(){

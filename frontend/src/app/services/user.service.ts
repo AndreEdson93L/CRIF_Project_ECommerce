@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject, catchError, of, tap } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, catchError, of, tap } from 'rxjs';
 import { User } from '../models/user';
 
 import { environment, includedUrls } from 'src/enviroments/enviroments';
@@ -10,9 +10,8 @@ import { Messageservice } from './messageservice.service';
   providedIn: 'root'
 })
 export class UserService {
-
-
-  private emitChangeSource = new Subject<boolean>();
+  
+  private emitChangeSource = new Subject<string>();
 
   changeEmitted$ = this.emitChangeSource.asObservable()
 
@@ -47,9 +46,8 @@ private handleError<T>(operation = 'operation', result?: T) {
   getUser() : Observable<User> {
     const url = environment.getUserDetail;
     
-    let user : any = this.http.get<User>(url)
-    
-    
+    let user : any = this.http.get<User>(url)  
+
     return user
     /* .pipe(
       tap(_ => this.log(`fetched user`)),
@@ -57,17 +55,10 @@ private handleError<T>(operation = 'operation', result?: T) {
     ); */
   }
 
-  emitChangeRole(user: User){
-    console.log("ciao userService emitChange");
+  changeRole(role: string){
     
-    if(user.role == "ADMIN"){
-      this.emitChangeSource.next(true)
-    } else{
-      this.emitChangeSource.next(false)
-    }
-    
+    this.emitChangeSource.next(role)
   }
-
 
   deleteUser() : Observable<any> {
     const url = environment.deleteUserDetail;

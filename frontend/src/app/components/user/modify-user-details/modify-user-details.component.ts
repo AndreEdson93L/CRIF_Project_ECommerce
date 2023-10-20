@@ -3,9 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { LoginService } from 'src/app/services/login.service';
-import { OfficialRegistrationService } from 'src/app/services/official-registration.service';
 import { UserService } from 'src/app/services/user.service';
-import { strongPasswordValidator } from 'src/app/utility/validators.util';
 
 @Component({
   selector: 'app-modify-user-details',

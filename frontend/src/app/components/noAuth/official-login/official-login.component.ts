@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
 import { LoginService } from 'src/app/services/login.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-official-login',
@@ -14,12 +16,12 @@ export class OfficialLoginComponent {
   errorMessage: string = '';
 
   constructor(private loginService: LoginService,
-    private router : Router) {}
+    private router : Router, private userService: UserService) {}
 
   //component method used to call [login of auth service]
   login(): void {
-    console.log("Login function called");
     
+    this.errorMessage = '';
     let hasBeenSucces = false
     this.loginService.login(this.username, this.password).subscribe({
       next: (data) => {
@@ -29,16 +31,20 @@ export class OfficialLoginComponent {
         this.successMessage = "Login successful.. Redirecting!";
         
         const helloJwt = localStorage.getItem('jwtToken');
-        console.log({"jwtToken: ": helloJwt});
+        
         hasBeenSucces = true;
 
-        console.log("hasBeenSuccess: ", hasBeenSucces);
 
         this.loginService.loggedIn();
 
         if(hasBeenSucces){
+
+
+          this.userService.getUser()
+
+          
           setTimeout(() => {
-            this.router.navigate(["/user-details"])
+            this.router.navigate(["/home"])
           }, 2000);
         }   
       },
@@ -47,11 +53,12 @@ export class OfficialLoginComponent {
         console.log('You shall not pass! ');
 
         // Check the error response from the server, if available
-        console.log("err: ", err);
-        console.log("err.error: ", err.error);
-        console.log("err.error.message: ", err.error.message);
         
-        this.errorMessage = "Login failed. Please try again.";
+        
+        if(err.error.status == 500){
+          this.errorMessage = "Login failed. Inserted email is not registered.";
+        }else if (err.error.status == 401)
+        this.errorMessage = "Login failed. Inserted password is not correct.";
         
         setTimeout(() => {
           this.errorMessage = '';

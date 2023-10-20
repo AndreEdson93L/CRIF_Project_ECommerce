@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
+import { LoginService } from 'src/app/services/login.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -7,45 +8,36 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit{
+  @Input() user : User | undefined 
+  @Input() isLoggedIn : boolean = false
+  @Input() userNickname : string | undefined
 
-  public user!: User;
-  public isAuthenticated = false
-  public userNickname: string | null | undefined
-  public userRole : string | null | undefined
+  constructor(private userService : UserService, private loginService: LoginService){
 
-  constructor(private userService : UserService){}
-
-  ngOnInit(): void {
-    let user = localStorage.getItem('user');
-    if(user){
-      this.user = JSON.parse(user);
-    } 
-    /*
-    this.getUser();
-    if(!this.user == null){
-      localStorage.setItem('userNickname', this.user.nickname)
-      localStorage.setItem('userRole', this.user.role)
-    }
-    */
+    loginService.changeEmitted$.subscribe(loginInfo =>{
+      this.isLoggedIn = loginInfo
+    })
   }
-  /*  
+  ngOnInit(): void {
+    this.getUser()
+  }
+
+
   getUser(): void {
 
     this.userService.getUser().subscribe({
       next: (user) =>{
-        console.log("User details: ", user)
+        
         this.user = user 
+        this.userNickname = user.nickname
+        this.userService.changeRole(user.role)
       },
       error: (err) => {
         console.log('You Failed!', err);
       },
-    });    
+    });
+
   }
 
-
-  getUserNickname() : string| undefined{
-    return this.user?.nickname;
-  }
-  */
 }

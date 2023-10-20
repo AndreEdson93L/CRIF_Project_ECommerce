@@ -21,8 +21,6 @@ export class UserDetailComponent {
 
   ngOnInit(): void {
     this.getUser();
-    
-    
   }
 
   onClickModify(){
@@ -36,7 +34,6 @@ export class UserDetailComponent {
         console.log(typeof hasBeenDeleted);
         
         this.hasBeenDeleted = hasBeenDeleted
-        console.log("ciao")
         localStorage.clear()
         this.router.navigate(["/home"])
       },
@@ -56,12 +53,7 @@ export class UserDetailComponent {
       next: (user) =>{
         
         this.user = user 
-        if(this.user !== undefined){
-          console.log("inside!!");
-          
-          this.userService.emitChangeRole(this.user);
-          
-        }
+       
       },
       error: (err) => {
         console.log('You Failed!', err);

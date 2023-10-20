@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
 import { LoginService } from 'src/app/services/login.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -9,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent{
-
+  
   @Input() isLoggedIn : boolean = false
   @Input() isAdmin : boolean = false
 
@@ -19,11 +20,18 @@ export class NavbarComponent{
   constructor(private router: Router, private loginService : LoginService, private userService: UserService) {
     loginService.changeEmitted$.subscribe(logInfo =>{
       this.isLoggedIn = logInfo
+    })
+    userService.changeEmitted$.subscribe(userInfo => {
+      let role = userInfo
+      console.log(role);
       
+      if(role == "ADMIN"){
+        this.isAdmin = true
+      } else if(role == "USER"){
+        this.isAdmin = false
+      }
     })
-    userService.changeEmitted$.subscribe(roleInfo =>{
-      this.isAdmin = roleInfo
-    })
+    
   }
 
   isActive(path: string): boolean {
