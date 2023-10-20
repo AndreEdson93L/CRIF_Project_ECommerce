@@ -22,9 +22,7 @@ export class UserDetailComponent {
 
   ngOnInit(): void {
     this.getUser();
-    if(!this.user == null){
-      localStorage.setItem('user', JSON.stringify(this.user))
-    }
+    
     
     
   }
@@ -37,10 +35,10 @@ export class UserDetailComponent {
   onClickDelete() : void{
     this.userService.deleteUser().subscribe({
       next: (hasBeenDeleted) =>{
-        console.log(typeof hasBeenDeleted);
+        
         
         this.hasBeenDeleted = hasBeenDeleted
-        console.log("ciao")
+       
         localStorage.clear()
         this.router.navigate(["/home"])
       },
@@ -54,18 +52,31 @@ export class UserDetailComponent {
     
   }
   
+  
   getUser(): void {
 
     this.userService.getUser().subscribe({
       next: (user) =>{
-        console.log("User details: ", user)
+       
         this.user = user 
-        console.log(this.user)
+        if(this.user !== undefined){
+          console.log("inside!!");
+          
+          this.userService.emitChange(this.user);
+          localStorage.setItem('user', JSON.stringify(this.user))
+          console.log(localStorage.getItem('user'));
+          
+        }
+        
       },
       error: (err) => {
         console.log('You Failed!', err);
       },
-    });    
+    });
+    
+    
+    
+    
   }
 
 }

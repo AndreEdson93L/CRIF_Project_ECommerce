@@ -9,7 +9,7 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class OfficialLoginComponent {
 
-  @Output() LoginEvent = new EventEmitter<{}>();
+  @Output() LoginEvent = new EventEmitter<string>();
 
 
   username: string = '';
@@ -49,8 +49,11 @@ export class OfficialLoginComponent {
 
           this.isLoggedIn = 'true';
           localStorage.setItem('jwtToken', JSON.stringify(data));
-          this.loginService.isLoggedIn(this.username);
-          this.LoginEvent.emit({name:this.username})
+          this.loginService.isLoggedIn();
+
+        
+
+
           setTimeout(() => {
             this.router.navigate(["/user-details"])
           }, 1000); 

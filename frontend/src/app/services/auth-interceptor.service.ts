@@ -32,18 +32,17 @@ export class AuthInterceptorService implements HttpInterceptor {
     
 
     if(url.includes("http://localhost:8081/api/v1/admin-management")){
-      console.log("sono qua!");
-      
+     
       if(!url.includes("get-all-users-details")){
-        console.log("sono qui!");
+        
         let x = request.url.lastIndexOf("/")
         url = request.url.slice(0, x)
-        console.log("questa è la url troncata: "+url)
+        
       }
     }
     
     if (jwt && (includedUrls.includes(request.url)|| includedUrls.includes(url))) {    
-      console.log("inside interceptor modifications");
+      
       const requestWithJwt = request.clone({
         setHeaders: {
           Authorization: `Bearer ${jwt}`

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/enviroments/enviroments';
 
 @Injectable({
@@ -9,8 +9,9 @@ import { environment } from 'src/enviroments/enviroments';
 export class LoginService {
 
   private urlJwt = environment.loginUrl;
-  nickname: Subject<string> = new Subject();
+ private emitChangeSource = new BehaviorSubject<boolean>(false);
 
+ changeEmitted$ = this.emitChangeSource.asObservable()
 
   constructor(private http: HttpClient) { }
 
@@ -22,7 +23,7 @@ export class LoginService {
     return this.http.post<string>(this.urlJwt, {}, { headers: headers });
   }
 
-  isLoggedIn(text : string){
-    this.nickname.next(text)
+  isLoggedIn(){
+    this.emitChangeSource.next(true)
   }
 }
