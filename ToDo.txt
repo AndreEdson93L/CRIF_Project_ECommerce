@@ -1,9 +1,4 @@
-Problema 1:
-	DashBoard Component -> al momento del login sarebbe carino mostrasse lo userName che però vuol dire fare una get lato server,
-	 ha senso farne un'altra poi in un secondo momento per lo USerDetailComponent? perchè se faccio il redirect dallo userDetailComponent(dopo la login)
-	al DashBoardComp si eliminano tutti i dati degli observable?
-Soluzione 1: Uso Un observable creato al momento della login e che viene subscribato da dashboard e userDetail.
-Soluzione 2: Dashboard inutile, viene visualizzata solo all'inizio
+
 
 Microservizio 3: almeno due tabelle -> prodotti e carrello
 	prodotti: id, nome, costo, img?, descrizione
