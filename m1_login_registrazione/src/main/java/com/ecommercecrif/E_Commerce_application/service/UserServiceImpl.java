@@ -1,5 +1,6 @@
 package com.ecommercecrif.E_Commerce_application.service;
 
+import com.ecommercecrif.E_Commerce_application.exception.EmailAlreadyInUseException;
 import com.ecommercecrif.E_Commerce_application.exception.UserNotFoundException;
 import com.ecommercecrif.E_Commerce_application.mapper.UserMapper;
 import com.ecommercecrif.E_Commerce_application.model.EnumRole;
@@ -33,6 +34,10 @@ public class UserServiceImpl implements UserService{
 
 
         UserEntity userEntity = userMapper.dtoToUserEntity(registerUserDTO);
+
+        if(repository.existsByEmail(userEntity.getEmail())){
+            throw new EmailAlreadyInUseException(userEntity.getEmail());
+        }
 
         //This is a workaround to remove the role = null problem in insertion into DB
         userEntity.setRole(EnumRole.valueOf("USER"));

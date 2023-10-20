@@ -20,7 +20,7 @@ export class OfficialLoginComponent {
   login(): void {
     console.log("Login function called");
     
-    let hasBeeenSucces = false
+    let hasBeenSucces = false
     this.loginService.login(this.username, this.password).subscribe({
       next: (data) => {
         localStorage.clear();
@@ -30,14 +30,16 @@ export class OfficialLoginComponent {
         
         const helloJwt = localStorage.getItem('jwtToken');
         console.log({"jwtToken: ": helloJwt});
-        hasBeeenSucces = true;
+        hasBeenSucces = true;
 
-        console.log("hasBeenSuccess: ", hasBeeenSucces);
+        console.log("hasBeenSuccess: ", hasBeenSucces);
 
-        if(hasBeeenSucces){
+        this.loginService.loggedIn();
+
+        if(hasBeenSucces){
           setTimeout(() => {
             this.router.navigate(["/user-details"])
-          }, 3000);
+          }, 2000);
         }   
       },
 

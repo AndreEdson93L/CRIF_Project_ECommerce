@@ -19,14 +19,29 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" routerLink="/user-details" routerLinkActive="active-link">Profile</a>
-        <a class="nav-link" routerLink="/admin-all-users-details" routerLinkActive="active-link">Users</a>
-        <a class="nav-link" routerLink="/register" routerLinkActive="active-link">Register</a>
-        <a class="nav-link" routerLink="/login" routerLinkActive="active-link">Login</a>
-        <a class="nav-link" routerLink="/home" routerLinkActive="active-link" (click)="logout()">Logout</a>
-        <a class="nav-link disabled" aria-disabled="true">You can't see me..</a>
+
+      <div class="navbar-nav" *ngIf="isLoggedIn; else elseBlock">
+        <div class="navbar-nav" *ngIf="isAdmin; else elseBlock">
+          <a class="nav-link" routerLink="/user-details" routerLinkActive="active-link">Profile</a>
+          <a class="nav-link" routerLink="/admin-all-users-details" routerLinkActive="active-link">Users</a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active-link" (click)="logout()">Logout</a>
+          <a class="nav-link disabled" aria-disabled="true">You can't see me..</a>
+        </div>
+        <ng-template #elseBlock>
+          <a class="nav-link" routerLink="/user-details" routerLinkActive="active-link">Profile</a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active-link" (click)="logout()">Logout</a>
+          <a class="nav-link disabled" aria-disabled="true">You can't see me..</a>
+        </ng-template>
+        
       </div>
+
+      <ng-template #elseBlock>
+        <div class="navbar-nav">
+          <a class="nav-link" routerLink="/register" routerLinkActive="active-link">Register</a>
+          <a class="nav-link" routerLink="/login" routerLinkActive="active-link">Login</a>
+          <a class="nav-link disabled" aria-disabled="true">You can't see me..</a>
+        </div>
+      </ng-template>
     </div>
   </div>
 </nav>

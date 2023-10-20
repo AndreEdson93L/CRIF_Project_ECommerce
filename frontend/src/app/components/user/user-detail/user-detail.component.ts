@@ -9,8 +9,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent {
-  @Input()
-  user!: User;
+  @Input() user!: User;
   @Input() hasBeenDeleted: boolean= false;
 
 
@@ -22,10 +21,6 @@ export class UserDetailComponent {
 
   ngOnInit(): void {
     this.getUser();
-    if(!this.user == null){
-      localStorage.setItem('userNickname', this.user.nickname)
-      localStorage.setItem('userRole', this.user.role)
-    }
     
     
   }
@@ -59,14 +54,20 @@ export class UserDetailComponent {
 
     this.userService.getUser().subscribe({
       next: (user) =>{
-        console.log("User details: ", user)
+        
         this.user = user 
-        console.log(this.user)
+        if(this.user !== undefined){
+          console.log("inside!!");
+          
+          this.userService.emitChangeRole(this.user);
+          
+        }
       },
       error: (err) => {
         console.log('You Failed!', err);
       },
-    });    
+    });
+
   }
 
 }

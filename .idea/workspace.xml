@@ -4,7 +4,92 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40c870de-415f-49c0-835e-a0ad9223b8f7" name="Changes" comment="" />
+    <list default="true" id="40c870de-415f-49c0-835e-a0ad9223b8f7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/exception/EmailAlreadyInUseException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/security/CustomAuthenticationFailureHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m2_gestione_account/target/classes/com/ecommercecrif/E_Commerce_application/exception/EmailAlreadyInUseException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m2_gestione_account/target/classes/com/ecommercecrif/E_Commerce_application/exception/HttpMessageError$HttpMessageErrorBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m2_gestione_account/target/classes/com/ecommercecrif/E_Commerce_application/exception/HttpMessageError.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m2_gestione_account/target/classes/com/ecommercecrif/E_Commerce_application/exception/NicknameAlreadyInUseException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m2_gestione_account/target/classes/com/ecommercecrif/E_Commerce_application/exception/UserNotFoundException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m2_gestione_account/target/classes/com/ecommercecrif/E_Commerce_application/mapper/UserMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m2_gestione_account/target/classes/com/ecommercecrif/E_Commerce_application/mapper/UserMapperImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m2_gestione_account/target/classes/com/ecommercecrif/E_Commerce_application/model/EnumRole.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m2_gestione_account/target/classes/com/ecommercecrif/E_Commerce_application/model/UserEntity$UserEntityBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m2_gestione_account/target/classes/com/ecommercecrif/E_Commerce_application/model/UserEntity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m2_gestione_account/target/classes/com/ecommercecrif/E_Commerce_application/model/dto/AuthUpdDTO$AuthUpdDTOBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m2_gestione_account/target/classes/com/ecommercecrif/E_Commerce_application/model/dto/AuthUpdDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m2_gestione_account/target/classes/com/ecommercecrif/E_Commerce_application/model/dto/AuthUserDTO$AuthUserDTOBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m2_gestione_account/target/classes/com/ecommercecrif/E_Commerce_application/model/dto/AuthUserDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m2_gestione_account/target/classes/com/ecommercecrif/E_Commerce_application/model/dto/RegisterUserDTO$RegisterUserDTOBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m2_gestione_account/target/classes/com/ecommercecrif/E_Commerce_application/model/dto/RegisterUserDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m2_gestione_account/target/classes/schema.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m2_gestione_account/target/generated-sources/annotations/com/ecommercecrif/E_Commerce_application/mapper/UserMapperImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m3_discovery_service/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m3_discovery_service/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m3_discovery_service/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m3_discovery_service/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m3_discovery_service/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m3_discovery_service/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m3_discovery_service/target/classes/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/m3_discovery_service/target/classes/com/example/demo/DemoApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.vscode/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/auth-guard-role.guard.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/auth.guard.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/auth.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/admin/all-users-details/all-users-details.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/admin/all-users-details/all-users-details.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/admin/modify-user-detail/modify-user-detail.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/admin/modify-user-detail/modify-user-detail.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/admin/user-detail/user-detail.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/admin/user-detail/user-detail.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/admin/user-detail/user-detail.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/messages/messages.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/messages/messages.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/navbar/navbar.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/noAuth/official-login/official-login.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/noAuth/official-registration-form/official-registration-form.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/noAuth/official-registration-form/official-registration-form.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/user/modify-user-details/modify-user-details.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/user/modify-user-details/modify-user-details.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/user/modify-user-details/modify-user-details.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/user/user-detail/user-detail.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/user/user-detail/user-detail.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/models/user.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/admin.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/auth-interceptor.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/login.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/messageservice.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/official-registration.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/utility/validators.util.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/chill_background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/enviroments/enviroments.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/exception/CustomExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/exception/CustomExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/security/CustomAuthenticationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/security/CustomAuthenticationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/security/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/security/CustomUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/m1_login_registrazione/src/main/java/com/ecommercecrif/E_Commerce_application/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m2_gestione_account/src/main/java/com/ecommercecrif/E_Commerce_application/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/m2_gestione_account/src/main/java/com/ecommercecrif/E_Commerce_application/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m2_gestione_account/src/main/java/com/ecommercecrif/E_Commerce_application/exception/CustomExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/m2_gestione_account/src/main/java/com/ecommercecrif/E_Commerce_application/exception/CustomExceptionHandler.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

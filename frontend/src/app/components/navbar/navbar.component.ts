@@ -1,36 +1,43 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnChanges{
+export class NavbarComponent{
 
-  @Input()
+  @Input() isLoggedIn : boolean = false
+  @Input() isAdmin : boolean = false
 
-  //HOW TO CHECK AT EVERY CHANGE THAT LOCALSTORAGE ITEM IS PRESENT? OBSERVABLE?
-
-  public isAdmin = localStorage.getItem('userRole')
 
 
   
-constructor(private router: Router) { }
+  constructor(private router: Router, private loginService : LoginService, private userService: UserService) {
+    loginService.changeEmitted$.subscribe(logInfo =>{
+      this.isLoggedIn = logInfo
+      
+    })
+    userService.changeEmitted$.subscribe(roleInfo =>{
+      this.isAdmin = roleInfo
+    })
+  }
 
   isActive(path: string): boolean {
     return this.router.url === path;
   }
 
-  ngOnChanges(){}
-
+  
   logout(): void{
-    
+
     console.log("Logout has been called");
+    this.loginService.loggedOut();
+    
     localStorage.clear();
     console.log("localStorage has been clean up");
     
-
-    //this.router.navigate(['/home']);
   }
 }

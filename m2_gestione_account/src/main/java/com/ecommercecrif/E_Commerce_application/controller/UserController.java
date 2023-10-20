@@ -6,6 +6,9 @@ import com.ecommercecrif.E_Commerce_application.service.UserServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.net.ConnectException;
 
@@ -29,6 +32,8 @@ public class UserController {
     @Operation(summary = "account-registration")
     @PostMapping("register-account")
     public UserResponseDTO registerAccount(@Valid @RequestBody RegisterUserDTO registerUserDTO) throws ConnectException {
+
+
         return userService.addUser(registerUserDTO);
     }
 
