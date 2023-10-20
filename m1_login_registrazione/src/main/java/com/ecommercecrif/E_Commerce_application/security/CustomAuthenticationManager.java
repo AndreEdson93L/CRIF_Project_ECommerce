@@ -27,17 +27,23 @@ public class CustomAuthenticationManager implements AuthenticationProvider {
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
         UserDetails user = service.loadUserByUsername(authentication.getName());
-
+    try{
         if(passwordEncoder.matches(authentication.getCredentials().toString(), user.getPassword())){
             final String password = authentication.getCredentials().toString();
             Collection<SimpleGrantedAuthority> authorities = new LinkedList<>();
             authorities.add(new SimpleGrantedAuthority(user.getAuthorities().toString()));
 
 
-            return new UsernamePasswordAuthenticationToken(user.getUsername(),password, authorities);
-        } else{
+            return new UsernamePasswordAuthenticationToken(user.getUsername(),password, authorities);}
+        else{
             throw new BadCredentialsException("Provided password is incorrect");
         }
+
+    } catch (Exception ex){
+        throw new BadCredentialsException("Provided password is incorrect");
+        }
+
+
 
     }
 

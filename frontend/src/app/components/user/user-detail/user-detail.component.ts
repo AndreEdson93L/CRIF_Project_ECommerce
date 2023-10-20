@@ -23,8 +23,7 @@ export class UserDetailComponent {
   ngOnInit(): void {
     this.getUser();
     if(!this.user == null){
-      localStorage.setItem('userNickname', this.user.nickname)
-      localStorage.setItem('userRole', this.user.role)
+      localStorage.setItem('user', JSON.stringify(this.user))
     }
     
     

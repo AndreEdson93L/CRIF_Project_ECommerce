@@ -21,16 +21,22 @@ public class CustomExceptionHandler {
 
     @ExceptionHandler({
             EmailAlreadyInUseException.class,
-            NicknameAlreadyInUseException.class,
-            AccessDeniedException.class
+            NicknameAlreadyInUseException.class
     })
-    public ResponseEntity<HttpMessageError> handleCustomExceptions(Exception ex, HttpStatus status) {
-        return buildHttpMessageError(ex.getMessage(), status);
+    public ResponseEntity<HttpMessageError> handleCustomAlreadyInUseExceptions(Exception ex) {
+        return buildHttpMessageError(ex.getMessage(), HttpStatus.CONFLICT);
     }
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<HttpMessageError> handleUserNotFoundException(UserNotFoundException ex) {
         HttpMessageError httpMessageError  = new HttpMessageError(ex.getMessage(), LocalDateTime.now());
         return new ResponseEntity<>(httpMessageError, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler( AccessDeniedException.class)
+    public ResponseEntity<HttpMessageError> handleEmailAlreadyInUseException( AccessDeniedException ex) {
+        HttpMessageError httpMessageError  = new HttpMessageError(ex.getMessage(), LocalDateTime.now());
+        return new ResponseEntity<>(httpMessageError, HttpStatus.UNAUTHORIZED);
+    }
+
 
 }

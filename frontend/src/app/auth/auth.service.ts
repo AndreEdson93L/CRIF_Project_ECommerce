@@ -5,12 +5,12 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  isLoggedIn = true
-  isAdmin = true
+  isLoggedIn = false
+  isAdmin = false
 
   isAutenticated(){
-    console.log("GUARD CONTROL.. inside service guard");
-    console.log("IsLoggedId: " + this.isLoggedIn);
+    /* console.log("GUARD CONTROL.. inside service guard");
+    console.log("IsLoggedId: " + this.isLoggedIn); */
     
     return this.isLoggedIn
   }
@@ -20,10 +20,15 @@ export class AuthService {
   }
 
   setAuthenticated(){
-    if(localStorage.getItem('jwtToken') == null){
+    if(localStorage.getItem('jwtToken') == null)
+    {
        this.isLoggedIn = false
-    } else{
-      this.isLoggedIn == true
+    } 
+    else
+    {
+      this.isLoggedIn = true
+      console.log(this.isLoggedIn);
+      
     } 
   }
 

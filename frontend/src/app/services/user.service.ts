@@ -4,14 +4,14 @@ import { Observable, catchError, of, tap } from 'rxjs';
 import { User } from '../models/user';
 
 import { environment, includedUrls } from 'src/enviroments/enviroments';
-import { Messageservice } from './messageservice.service';
+import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private http: HttpClient, private msgService : Messageservice) { }
+  constructor(private http: HttpClient, private msgService : MessageService) { }
 
 
   private log(message: string) {

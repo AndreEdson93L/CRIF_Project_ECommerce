@@ -1,7 +1,5 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { Route, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user';
 import { AdminService } from 'src/app/services/admin.service';
 

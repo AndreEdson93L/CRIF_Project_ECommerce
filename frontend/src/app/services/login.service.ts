@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/enviroments/enviroments';
 
 @Injectable({
@@ -8,7 +8,9 @@ import { environment } from 'src/enviroments/enviroments';
 })
 export class LoginService {
 
-  private url = environment.loginUrl;
+  private urlJwt = environment.loginUrl;
+  nickname: Subject<string> = new Subject();
+
 
   constructor(private http: HttpClient) { }
 
@@ -17,12 +19,10 @@ export class LoginService {
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
 
-    return this.http.post<string>(this.url, {}, { headers: headers });
+    return this.http.post<string>(this.urlJwt, {}, { headers: headers });
   }
 
-  /* isLoggedIn(){
-    if(localStorage.getItem('jwtToken') !== null){
-      return true
-    }
-  } */
+  isLoggedIn(text : string){
+    this.nickname.next(text)
+  }
 }

@@ -1,9 +1,11 @@
 package com.ecommercecrif.E_Commerce_application.security;
 
 
+import com.ecommercecrif.E_Commerce_application.exception.UserNotFoundException;
 import com.ecommercecrif.E_Commerce_application.model.EnumRole;
 import com.ecommercecrif.E_Commerce_application.model.UserEntity;
 import com.ecommercecrif.E_Commerce_application.repository.UserRepository;
+import com.ecommercecrif.E_Commerce_application.service.UserServiceImpl;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -22,20 +24,17 @@ import java.util.Optional;
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
-    public UserRepository repository;
+    public UserServiceImpl userService;
 
-    public CustomUserDetailsService(UserRepository repository) {
-        this.repository = repository;
+    public CustomUserDetailsService() {
+
     }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-        Optional<UserEntity> optUser =repository.findByEmail(email);
-        if (optUser.isEmpty()){
-            throw new EntityNotFoundException("Username not found");
-        }
-        UserEntity user = optUser.get();
+        UserEntity user =userService.findByEmail(email);
+
         return new User(user.getEmail(), user.getPassword(), mapRolesToAuthorities(user.getRole()));
     }
 

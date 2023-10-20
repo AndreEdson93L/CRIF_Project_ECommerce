@@ -15,6 +15,9 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   registerForm!: FormGroup;
+  
+  errorMessage: string | null | undefined;
+  
 
   constructor(private fb: FormBuilder, private authService: OfficialRegistrationService, private router: Router) { }
 
@@ -28,6 +31,7 @@ export class RegisterComponent implements OnInit {
 
   register() {
     let hasBeeenSucces = false
+    this.errorMessage = null
     if (this.registerForm.valid) {
       const user = this.registerForm.value as User;
       this.authService.registerAccount(user).subscribe({
@@ -35,11 +39,13 @@ export class RegisterComponent implements OnInit {
           console.log('User registered:', response);
           hasBeeenSucces = true
           if(hasBeeenSucces){
+            localStorage.setItem('hasRegistered', 'true')
             this.router.navigate(["/login"])
           }
         },
         error: (err) => {
-          console.log('Registration failed:', err);
+         this.errorMessage = (err.error.message)
+         
         }
       });
     }
